@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "lab": "Electronics Lab 204 (fictional)",
+  "items": [
+    { "id": "ARD-01", "name": "Arduino Uno starter kit", "stock": 6, "maintenance": false },
+    { "id": "RPI-02", "name": "Raspberry Pi 4 kit", "stock": 2, "maintenance": false },
+    { "id": "OSC-03", "name": "Digital oscilloscope", "stock": 1, "maintenance": true },
+    { "id": "VR-04", "name": "VR headset", "stock": 3, "maintenance": false }
+  ]
+}
