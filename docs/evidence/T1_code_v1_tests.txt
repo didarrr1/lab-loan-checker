@@ -1,0 +1,45 @@
+2026-11-27 11:32:28 +05:00
+commit: 153f753 (+ uncommitted code track v1)
+node v22.23.5
+$ npm test
+
+> lab-loan-checker@1.0.0 test
+> node --test --test-reporter=spec tests/rules.test.js
+
+▶ shared acceptance cases T1-T10 (tests/cases.json)
+  ✔ T1: ARD-01 qty=2 days=7 -> Approved / APPROVED (1.184ms)
+  ✔ T2: ARD-01 qty=5 days=14 -> Approved / APPROVED (0.123ms)
+  ✔ T3: ARD-01 qty=6 days=7 -> Invalid input / QUANTITY_OUT_OF_RANGE (0.117ms)
+  ✔ T4: ARD-01 qty=1 days=15 -> Invalid input / DAYS_OUT_OF_RANGE (0.196ms)
+  ✔ T5: RPI-02 qty=2 days=1 -> Approved / APPROVED (0.1135ms)
+  ✔ T6: RPI-02 qty=3 days=7 -> Rejected / INSUFFICIENT_STOCK (0.09ms)
+  ✔ T7: OSC-03 qty=1 days=3 -> Rejected / ITEM_UNAVAILABLE (0.1582ms)
+  ✔ T8: ARD-01 qty=two days=7 -> Invalid input / INVALID_QUANTITY (0.1951ms)
+  ✔ T9: (no item) qty=1 days=1 -> Invalid input / INVALID_ITEM (0.2417ms)
+  ✔ T10: VR-04 qty=0 days=0 -> Invalid input / QUANTITY_OUT_OF_RANGE (1.259ms)
+✔ shared acceptance cases T1-T10 (tests/cases.json) (4.9267ms)
+▶ T11 repeated operation and T12 failure handling
+  ✔ T11: the same request three times gives the same result and the stock stays 6 (0.916ms)
+  ✔ T12: no catalog -> CATALOG_UNAVAILABLE, no decision (0.1294ms)
+  ✔ T12: loadCatalog rejects when the network request fails (0.3475ms)
+✔ T11 repeated operation and T12 failure handling (1.5247ms)
+▶ validation details (AC2, AC4)
+  ✔ parseWholeNumber accepts only plain whole numbers (0.172ms)
+  ✔ quantity boundaries: 1 and 5 accepted, 0 and 6 rejected (0.116ms)
+  ✔ days boundaries: 1 and 14 accepted, 0 and 15 rejected (0.0997ms)
+  ✔ unknown item id and empty days (0.0868ms)
+✔ validation details (AC2, AC4) (0.587ms)
+▶ rules and data integrity (AC3, AC5)
+  ✔ stock rule: quantity equal to stock is approved, one more is rejected (0.1178ms)
+  ✔ maintenance wins over the stock rule (0.0852ms)
+  ✔ the loaded catalog is frozen and cannot be changed by mistake (0.314ms)
+✔ rules and data integrity (AC3, AC5) (0.6105ms)
+ℹ tests 20
+ℹ suites 4
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 126.4349
+EXIT=0

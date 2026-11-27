@@ -3,25 +3,54 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lab Equipment Catalog</title>
+  <title>Lab Equipment Loan Checker (code-based)</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
-    <h1>Lab Equipment Catalog</h1>
-    <p class="sub">Electronics Lab 204 · fictional data only</p>
+    <h1>Lab Equipment Loan Checker</h1>
+    <p class="sub">Electronics Lab 204 · code-based track · fictional data only · checks only, nothing is reserved</p>
   </header>
+
   <main>
-    <section class="card">
-      <h2>Equipment</h2>
+    <section class="card" aria-labelledby="req-title">
+      <h2 id="req-title">Check a loan request</h2>
+      <p id="catalog-error" class="error" role="alert"></p>
+      <form id="loan-form" novalidate>
+        <label for="item">Item</label>
+        <select id="item" name="item">
+          <option value="">- choose an item -</option>
+        </select>
+
+        <label for="quantity">Quantity (1-5)</label>
+        <input id="quantity" name="quantity" type="text" inputmode="numeric" placeholder="e.g. 2">
+
+        <label for="days">Loan days (1-14)</label>
+        <input id="days" name="days" type="text" inputmode="numeric" placeholder="e.g. 7">
+
+        <button type="submit" id="check-btn">Check request</button>
+      </form>
+    </section>
+
+    <section class="card" aria-live="polite" aria-labelledby="res-title">
+      <h2 id="res-title">Result</h2>
+      <p id="decision" class="decision neutral">No check yet</p>
+      <p><span class="label">Reason code:</span> <code id="reason-code">-</code></p>
+      <p id="message" class="message">Choose an item, enter a quantity and loan days, then press "Check request".</p>
+    </section>
+
+    <section class="card wide" aria-labelledby="cat-title">
+      <h2 id="cat-title">Catalog (read-only)</h2>
       <div class="table-wrap">
         <table>
           <thead><tr><th>ID</th><th>Name</th><th>In stock</th><th>Status</th></tr></thead>
           <tbody id="items"></tbody>
         </table>
       </div>
+      <p id="integrity" class="integrity">Stock unchanged: yes (0 checks)</p>
     </section>
   </main>
+
   <script type="module" src="src/ui.js"></script>
 </body>
 </html>

@@ -1,2 +1,4 @@
 ﻿2026-11-27 11:29:08
 ^ Task 1 start: baseline and requirements
+2026-11-27 11:31:14
+^ Task 1 done (contract + cases); code-based setup/implementation starts
