@@ -1,0 +1,21 @@
+2026-11-27 11:40:45 +0500 DAST probe of the LOCAL dev server only (tools/serve.js, 127.0.0.1:5186, after fixes, commit 2117c77)
+GET / -> 200
+GET /data/catalog.json -> 200
+GET /.git/config -> 404
+GET /.gitignore -> 404
+GET /..%2f..%2fWindows/win.ini -> 404
+GET /%2e%2e/%2e%2e/Windows/win.ini -> 404
+GET /%E0%A4%A -> 400
+GET / -> 200
+POST / -> 405
+--- response headers of GET / ---
+HTTP/1.1 200 OK
+Cache-Control: no-store
+X-Content-Type-Options: nosniff
+Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'
+Content-Type: text/html
+Date: Fri, 27 Nov 2026 06:40:46 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
