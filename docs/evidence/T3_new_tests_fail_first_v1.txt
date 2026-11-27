@@ -1,0 +1,414 @@
+2026-11-27 11:38:39 +05:00
+new tests added BEFORE any fix, code still v1 (7c74b3d)
+$ npm test
+
+> lab-loan-checker@1.0.0 test
+> node --test --test-reporter=spec tests/rules.test.js tests/catalog.test.js
+
+▶ loadCatalog failure handling (review R3)
+  ✔ a valid catalog loads (1.4597ms)
+  ✖ HTTP 500 with a JSON body is rejected (1.0889ms)
+  ✔ invalid JSON is rejected (0.4072ms)
+  ✖ malformed item is rejected: missing stock (0.5877ms)
+  ✖ malformed item is rejected: negative stock (0.3508ms)
+  ✖ malformed item is rejected: maintenance as a string (0.2988ms)
+  ✖ malformed item is rejected: empty id (0.3706ms)
+  ✔ a body without items is rejected (0.4528ms)
+✖ loadCatalog failure handling (review R3) (6.8952ms)
+▶ static checks of the presentation layer (review R1, R2)
+  ✖ ui.js never writes HTML (no innerHTML / outerHTML / insertAdjacentHTML) (21.5634ms)
+  ✖ index.html declares a Content-Security-Policy that blocks inline scripts (3.7663ms)
+  ✖ the check button starts disabled until the catalog is loaded (review R4) (2.2851ms)
+✖ static checks of the presentation layer (review R1, R2) (28.3883ms)
+▶ integration: local dev server (review R6)
+  ✖ malformed URL gets 400, dotfiles get 404, the server stays alive (198.7451ms)
+✖ integration: local dev server (review R6) (200.4364ms)
+▶ shared acceptance cases T1-T10 (tests/cases.json)
+  ✔ T1: ARD-01 qty=2 days=7 -> Approved / APPROVED (2.7657ms)
+  ✔ T2: ARD-01 qty=5 days=14 -> Approved / APPROVED (0.2672ms)
+  ✔ T3: ARD-01 qty=6 days=7 -> Invalid input / QUANTITY_OUT_OF_RANGE (0.2822ms)
+  ✔ T4: ARD-01 qty=1 days=15 -> Invalid input / DAYS_OUT_OF_RANGE (0.4532ms)
+  ✔ T5: RPI-02 qty=2 days=1 -> Approved / APPROVED (0.268ms)
+  ✔ T6: RPI-02 qty=3 days=7 -> Rejected / INSUFFICIENT_STOCK (0.2178ms)
+  ✔ T7: OSC-03 qty=1 days=3 -> Rejected / ITEM_UNAVAILABLE (0.3277ms)
+  ✔ T8: ARD-01 qty=two days=7 -> Invalid input / INVALID_QUANTITY (0.2977ms)
+  ✔ T9: (no item) qty=1 days=1 -> Invalid input / INVALID_ITEM (0.3495ms)
+  ✔ T10: VR-04 qty=0 days=0 -> Invalid input / QUANTITY_OUT_OF_RANGE (1.6559ms)
+✔ shared acceptance cases T1-T10 (tests/cases.json) (9.8469ms)
+▶ T11 repeated operation and T12 failure handling
+  ✔ T11: the same request three times gives the same result and the stock stays 6 (2.0227ms)
+  ✔ T12: no catalog -> CATALOG_UNAVAILABLE, no decision (0.2874ms)
+  ✖ T12 (review R5): the decision is exactly "No decision", not "Invalid input" (2.1604ms)
+  ✔ T12: loadCatalog rejects when the network request fails (0.7522ms)
+✖ T11 repeated operation and T12 failure handling (5.6576ms)
+▶ validation details (AC2, AC4)
+  ✔ parseWholeNumber accepts only plain whole numbers (0.4342ms)
+  ✔ quantity boundaries: 1 and 5 accepted, 0 and 6 rejected (0.3537ms)
+  ✔ days boundaries: 1 and 14 accepted, 0 and 15 rejected (0.158ms)
+  ✔ order of checks (review R7): quantity format, then days format, then ranges (0.1363ms)
+  ✖ message wording (review R10): "1 day" singular, "7 days" plural (0.4059ms)
+  ✔ unknown item id and empty days (0.1445ms)
+✖ validation details (AC2, AC4) (1.9078ms)
+▶ rules and data integrity (AC3, AC5)
+  ✔ stock rule: quantity equal to stock is approved, one more is rejected (0.1937ms)
+  ✔ maintenance wins over the stock rule (0.1265ms)
+  ✔ the loaded catalog is frozen and cannot be changed by mistake (0.4433ms)
+✔ rules and data integrity (AC3, AC5) (0.9444ms)
+ℹ tests 35
+ℹ suites 7
+ℹ pass 24
+ℹ fail 11
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 386.1975
+
+✖ failing tests:
+
+test at tests\catalog.test.js:17:3
+✖ HTTP 500 with a JSON body is rejected (1.0889ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/USER/Desktop/SoftwareAI/Assignment6/repo/tests/catalog.test.js:18:5)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\catalog.test.js:29:5
+✖ malformed item is rejected: missing stock (0.5877ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/USER/Desktop/SoftwareAI/Assignment6/repo/tests/catalog.test.js:30:7)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\catalog.test.js:29:5
+✖ malformed item is rejected: negative stock (0.3508ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/USER/Desktop/SoftwareAI/Assignment6/repo/tests/catalog.test.js:30:7)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\catalog.test.js:29:5
+✖ malformed item is rejected: maintenance as a string (0.2988ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/USER/Desktop/SoftwareAI/Assignment6/repo/tests/catalog.test.js:30:7)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\catalog.test.js:29:5
+✖ malformed item is rejected: empty id (0.3706ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/USER/Desktop/SoftwareAI/Assignment6/repo/tests/catalog.test.js:30:7)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\catalog.test.js:40:3
+✖ ui.js never writes HTML (no innerHTML / outerHTML / insertAdjacentHTML) (21.5634ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /innerHTML|outerHTML|insertAdjacentHTML/. Input:
+  
+  '// Presentation layer: reads the form, calls checkLoan, writes the result. Text is written with textContent.\n' +
+    "import { loadCatalog } from './catalog.js';\n" +
+    "import { checkLoan } from './rules.js';\n" +
+    '\n' +
+    'const $ = (id) => document.getElementById(id);\n' +
+    'let catalog = null;\n' +
+    "let snapshot = '';\n" +
+    'let checks = 0;\n' +
+    '\n' +
+    'function renderCatalog() {\n' +
+    "  const body = $('items');\n" +
+    "  const select = $('item');\n" +
+    '  body.replaceChildren();\n' +
+    '  for (const item of catalog.items) {\n' +
+    "    const row = document.createElement('tr');\n" +
+    "    for (const text of [item.id, item.name, String(item.stock), item.maintenance ? 'Maintenance' : 'OK']) {\n" +
+    "      const cell = document.createElement('td');\n" +
+    '      cell.textContent = text;\n' +
+    '      row.append(cell);\n' +
+    '    }\n' +
+    '    body.append(row);\n' +
+    '    select.append(new Option(`${item.id} - ${item.name}`, item.id));\n' +
+    '  }\n' +
+    '}\n' +
+    '\n' +
+    'function show(result) {\n' +
+    "  const decision = $('decision');\n" +
+    '  decision.textContent = result.decision;\n' +
+    "  decision.className = `decision ${result.decision === 'Approved' ? 'ok' : result.decision === 'Rejected' ? 'bad' : 'warn'}`;\n" +
+    "  $('reason-code').textContent = result.reason;\n" +
+    "  $('message').innerHTML = result.message;\n" +
+    '  checks += 1;\n' +
+    '  const unchanged = JSON.stringify(catalog) === snapshot;\n' +
+    "  $('integrity').textContent = `Stock unchanged: ${unchanged ? 'yes' : 'NO'} (${checks} checks)`;\n" +
+    '}\n' +
+    '\n' +
+    "$('loan-form').addEventListener('submit', (event) => {\n" +
+    '  event.preventDefault();\n' +
+    "  show(checkLoan({ itemId: $('item').value, quantity: $('quantity').value, days: $('days').value }, catalog));\n" +
+    '});\n' +
+    '\n' +
+    'loadCatalog()\n' +
+    '  .then((data) => {\n' +
+    '    catalog = data;\n' +
+    '    snapshot = JSON.stringify(catalog);\n' +
+    '    renderCatalog();\n' +
+    '  })\n' +
+    '  .catch(() => {\n' +
+    "    $('catalog-error').textContent = 'The catalog could not be loaded. Try again later.';\n" +
+    "    $('check-btn').disabled = true;\n" +
+    "    $('decision').textContent = 'No decision';\n" +
+    "    $('reason-code').textContent = 'CATALOG_UNAVAILABLE';\n" +
+    '  });\n'
+  
+      at TestContext.<anonymous> (file:///C:/Users/USER/Desktop/SoftwareAI/Assignment6/repo/tests/catalog.test.js:41:12)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "// Presentation layer: reads the form, calls checkLoan, writes the result. Text is written with textContent.\nimport { loadCatalog } from './catalog.js';\nimport { checkLoan } from './rules.js';\n\nconst $ = (id) => document.getElementById(id);\nlet catalog = null;\nlet snapshot = '';\nlet checks = 0;\n\nfunction renderCatalog() {\n  const body = $('items');\n  const select = $('item');\n  body.replaceChildren();\n  for (const item of catalog.items) {\n    const row = document.createElement('tr');\n    for (const text of [item.id, item.name, String(item.stock), item.maintenance ? 'Maintenance' : 'OK']) {\n      const cell = document.createElement('td');\n      cell.textContent = text;\n      row.append(cell);\n    }\n    body.append(row);\n    select.append(new Option(`${item.id} - ${item.name}`, item.id));\n  }\n}\n\nfunction show(result) {\n  const decision = $('decision');\n  decision.textContent = result.decision;\n  decision.className = `decision ${result.decision === 'Approved' ? 'ok' : result.decision === 'Rejected' ? 'bad' : 'warn'}`;\n  $('reason-code').textContent = result.reason;\n  $('message').innerHTML = result.message;\n  checks += 1;\n  const unchanged = JSON.stringify(catalog) === snapshot;\n  $('integrity').textContent = `Stock unchanged: ${unchanged ? 'yes' : 'NO'} (${checks} checks)`;\n}\n\n$('loan-form').addEventListener('submit', (event) => {\n  event.preventDefault();\n  show(checkLoan({ itemId: $('item').value, quantity: $('quantity').value, days: $('days').value }, catalog));\n});\n\nloadCatalog()\n  .then((data) => {\n    catalog = data;\n    snapshot = JSON.stringify(catalog);\n    renderCatalog();\n  })\n  .catch(() => {\n    $('catalog-error').textContent = 'The catalog could not be loaded. Try again later.';\n    $('check-btn').disabled = true;\n    $('decision').textContent = 'No decision';\n    $('reason-code').textContent = 'CATALOG_UNAVAILABLE';\n  });\n",
+    expected: /innerHTML|outerHTML|insertAdjacentHTML/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at tests\catalog.test.js:43:3
+✖ index.html declares a Content-Security-Policy that blocks inline scripts (3.7663ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /http-equiv="Content-Security-Policy"/. Input:
+  
+  '<!doctype html>\n' +
+    '<html lang="en">\n' +
+    '<head>\n' +
+    '  <meta charset="utf-8">\n' +
+    '  <meta name="viewport" content="width=device-width, initial-scale=1">\n' +
+    '  <title>Lab Equipment Loan Checker (code-based)</title>\n' +
+    '  <link rel="stylesheet" href="styles.css">\n' +
+    '</head>\n' +
+    '<body>\n' +
+    '  <header>\n' +
+    '    <h1>Lab Equipment Loan Checker</h1>\n' +
+    '    <p class="sub">Electronics Lab 204 · code-based track · fictional data only · checks only, nothing is reserved</p>\n' +
+    '  </header>\n' +
+    '\n' +
+    '  <main>\n' +
+    '    <section class="card" aria-labelledby="req-title">\n' +
+    '      <h2 id="req-title">Check a loan request</h2>\n' +
+    '      <p id="catalog-error" class="error" role="alert"></p>\n' +
+    '      <form id="loan-form" novalidate>\n' +
+    '        <label for="item">Item</label>\n' +
+    '        <select id="item" name="item">\n' +
+    '          <option value="">- choose an item -</option>\n' +
+    '        </select>\n' +
+    '\n' +
+    '        <label for="quantity">Quantity (1-5)</label>\n' +
+    '        <input id="quantity" name="quantity" type="text" inputmode="numeric" placeholder="e.g. 2">\n' +
+    '\n' +
+    '        <label for="days">Loan days (1-14)</label>\n' +
+    '        <input id="days" name="days" type="text" inputmode="numeric" placeholder="e.g. 7">\n' +
+    '\n' +
+    '        <button type="submit" id="check-btn">Check request</button>\n' +
+    '      </form>\n' +
+    '    </section>\n' +
+    '\n' +
+    '    <section class="card" aria-live="polite" aria-labelledby="res-title">\n' +
+    '      <h2 id="res-title">Result</h2>\n' +
+    '      <p id="decision" class="decision neutral">No check yet</p>\n' +
+    '      <p><span class="label">Reason code:</span> <code id="reason-code">-</code></p>\n' +
+    '      <p id="message" class="message">Choose an item, enter a quantity and loan days, then press "Check request".</p>\n' +
+    '    </section>\n' +
+    '\n' +
+    '    <section class="card wide" aria-labelledby="cat-title">\n' +
+    '      <h2 id="cat-title">Catalog (read-only)</h2>\n' +
+    '      <div class="table-wrap">\n' +
+    '        <table>\n' +
+    '          <thead><tr><th>ID</th><th>Name</th><th>In stock</th><th>Status</th></tr></thead>\n' +
+    '          <tbody id="items"></tbody>\n' +
+    '        </table>\n' +
+    '      </div>\n' +
+    '      <p id="integrity" class="integrity">Stock unchanged: yes (0 checks)</p>\n' +
+    '    </section>\n' +
+    '  </main>\n' +
+    '\n' +
+    '  <script type="module" src="src/ui.js"></script>\n' +
+    '</body>\n' +
+    '</html>\n'
+  
+      at TestContext.<anonymous> (file:///C:/Users/USER/Desktop/SoftwareAI/Assignment6/repo/tests/catalog.test.js:45:12)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<!doctype html>\n<html lang="en">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1">\n  <title>Lab Equipment Loan Checker (code-based)</title>\n  <link rel="stylesheet" href="styles.css">\n</head>\n<body>\n  <header>\n    <h1>Lab Equipment Loan Checker</h1>\n    <p class="sub">Electronics Lab 204 · code-based track · fictional data only · checks only, nothing is reserved</p>\n  </header>\n\n  <main>\n    <section class="card" aria-labelledby="req-title">\n      <h2 id="req-title">Check a loan request</h2>\n      <p id="catalog-error" class="error" role="alert"></p>\n      <form id="loan-form" novalidate>\n        <label for="item">Item</label>\n        <select id="item" name="item">\n          <option value="">- choose an item -</option>\n        </select>\n\n        <label for="quantity">Quantity (1-5)</label>\n        <input id="quantity" name="quantity" type="text" inputmode="numeric" placeholder="e.g. 2">\n\n        <label for="days">Loan days (1-14)</label>\n        <input id="days" name="days" type="text" inputmode="numeric" placeholder="e.g. 7">\n\n        <button type="submit" id="check-btn">Check request</button>\n      </form>\n    </section>\n\n    <section class="card" aria-live="polite" aria-labelledby="res-title">\n      <h2 id="res-title">Result</h2>\n      <p id="decision" class="decision neutral">No check yet</p>\n      <p><span class="label">Reason code:</span> <code id="reason-code">-</code></p>\n      <p id="message" class="message">Choose an item, enter a quantity and loan days, then press "Check request".</p>\n    </section>\n\n    <section class="card wide" aria-labelledby="cat-title">\n      <h2 id="cat-title">Catalog (read-only)</h2>\n      <div class="table-wrap">\n        <table>\n          <thead><tr><th>ID</th><th>Name</th><th>In stock</th><th>Status</th></tr></thead>\n          <tbody id="items"></tbody>\n        </table>\n      </div>\n      <p id="integrity" class="integrity">Stock unchanged: yes (0 checks)</p>\n    </section>\n  </main>\n\n  <script type="module" src="src/ui.js"></script>\n</body>\n</html>\n',
+    expected: /http-equiv="Content-Security-Policy"/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tests\catalog.test.js:48:3
+✖ the check button starts disabled until the catalog is loaded (review R4) (2.2851ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /<button[^>]*id="check-btn"[^>]*disabled/. Input:
+  
+  '<!doctype html>\n' +
+    '<html lang="en">\n' +
+    '<head>\n' +
+    '  <meta charset="utf-8">\n' +
+    '  <meta name="viewport" content="width=device-width, initial-scale=1">\n' +
+    '  <title>Lab Equipment Loan Checker (code-based)</title>\n' +
+    '  <link rel="stylesheet" href="styles.css">\n' +
+    '</head>\n' +
+    '<body>\n' +
+    '  <header>\n' +
+    '    <h1>Lab Equipment Loan Checker</h1>\n' +
+    '    <p class="sub">Electronics Lab 204 · code-based track · fictional data only · checks only, nothing is reserved</p>\n' +
+    '  </header>\n' +
+    '\n' +
+    '  <main>\n' +
+    '    <section class="card" aria-labelledby="req-title">\n' +
+    '      <h2 id="req-title">Check a loan request</h2>\n' +
+    '      <p id="catalog-error" class="error" role="alert"></p>\n' +
+    '      <form id="loan-form" novalidate>\n' +
+    '        <label for="item">Item</label>\n' +
+    '        <select id="item" name="item">\n' +
+    '          <option value="">- choose an item -</option>\n' +
+    '        </select>\n' +
+    '\n' +
+    '        <label for="quantity">Quantity (1-5)</label>\n' +
+    '        <input id="quantity" name="quantity" type="text" inputmode="numeric" placeholder="e.g. 2">\n' +
+    '\n' +
+    '        <label for="days">Loan days (1-14)</label>\n' +
+    '        <input id="days" name="days" type="text" inputmode="numeric" placeholder="e.g. 7">\n' +
+    '\n' +
+    '        <button type="submit" id="check-btn">Check request</button>\n' +
+    '      </form>\n' +
+    '    </section>\n' +
+    '\n' +
+    '    <section class="card" aria-live="polite" aria-labelledby="res-title">\n' +
+    '      <h2 id="res-title">Result</h2>\n' +
+    '      <p id="decision" class="decision neutral">No check yet</p>\n' +
+    '      <p><span class="label">Reason code:</span> <code id="reason-code">-</code></p>\n' +
+    '      <p id="message" class="message">Choose an item, enter a quantity and loan days, then press "Check request".</p>\n' +
+    '    </section>\n' +
+    '\n' +
+    '    <section class="card wide" aria-labelledby="cat-title">\n' +
+    '      <h2 id="cat-title">Catalog (read-only)</h2>\n' +
+    '      <div class="table-wrap">\n' +
+    '        <table>\n' +
+    '          <thead><tr><th>ID</th><th>Name</th><th>In stock</th><th>Status</th></tr></thead>\n' +
+    '          <tbody id="items"></tbody>\n' +
+    '        </table>\n' +
+    '      </div>\n' +
+    '      <p id="integrity" class="integrity">Stock unchanged: yes (0 checks)</p>\n' +
+    '    </section>\n' +
+    '  </main>\n' +
+    '\n' +
+    '  <script type="module" src="src/ui.js"></script>\n' +
+    '</body>\n' +
+    '</html>\n'
+  
+      at TestContext.<anonymous> (file:///C:/Users/USER/Desktop/SoftwareAI/Assignment6/repo/tests/catalog.test.js:49:12)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<!doctype html>\n<html lang="en">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1">\n  <title>Lab Equipment Loan Checker (code-based)</title>\n  <link rel="stylesheet" href="styles.css">\n</head>\n<body>\n  <header>\n    <h1>Lab Equipment Loan Checker</h1>\n    <p class="sub">Electronics Lab 204 · code-based track · fictional data only · checks only, nothing is reserved</p>\n  </header>\n\n  <main>\n    <section class="card" aria-labelledby="req-title">\n      <h2 id="req-title">Check a loan request</h2>\n      <p id="catalog-error" class="error" role="alert"></p>\n      <form id="loan-form" novalidate>\n        <label for="item">Item</label>\n        <select id="item" name="item">\n          <option value="">- choose an item -</option>\n        </select>\n\n        <label for="quantity">Quantity (1-5)</label>\n        <input id="quantity" name="quantity" type="text" inputmode="numeric" placeholder="e.g. 2">\n\n        <label for="days">Loan days (1-14)</label>\n        <input id="days" name="days" type="text" inputmode="numeric" placeholder="e.g. 7">\n\n        <button type="submit" id="check-btn">Check request</button>\n      </form>\n    </section>\n\n    <section class="card" aria-live="polite" aria-labelledby="res-title">\n      <h2 id="res-title">Result</h2>\n      <p id="decision" class="decision neutral">No check yet</p>\n      <p><span class="label">Reason code:</span> <code id="reason-code">-</code></p>\n      <p id="message" class="message">Choose an item, enter a quantity and loan days, then press "Check request".</p>\n    </section>\n\n    <section class="card wide" aria-labelledby="cat-title">\n      <h2 id="cat-title">Catalog (read-only)</h2>\n      <div class="table-wrap">\n        <table>\n          <thead><tr><th>ID</th><th>Name</th><th>In stock</th><th>Status</th></tr></thead>\n          <tbody id="items"></tbody>\n        </table>\n      </div>\n      <p id="integrity" class="integrity">Stock unchanged: yes (0 checks)</p>\n    </section>\n  </main>\n\n  <script type="module" src="src/ui.js"></script>\n</body>\n</html>\n',
+    expected: /<button[^>]*id="check-btn"[^>]*disabled/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at tests\catalog.test.js:54:3
+✖ malformed URL gets 400, dotfiles get 404, the server stays alive (198.7451ms)
+  TypeError: fetch failed
+      at node:internal/deps/undici/undici:15456:13
+      at async TestContext.<anonymous> (file:///C:/Users/USER/Desktop/SoftwareAI/Assignment6/repo/tests/catalog.test.js:63:20)
+      at async Test.run (node:internal/test_runner/test:1054:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1442:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    [cause]: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:216:20) {
+      errno: -4077,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    }
+  }
+
+test at tests\rules.test.js:41:3
+✖ T12 (review R5): the decision is exactly "No decision", not "Invalid input" (2.1604ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'Invalid input'
+  - 'No decision'
+  
+      at TestContext.<anonymous> (file:///C:/Users/USER/Desktop/SoftwareAI/Assignment6/repo/tests/rules.test.js:42:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1047:25)
+      at Suite.processPendingSubtests (node:internal/test_runner/test:744:18)
+      at Test.postRun (node:internal/test_runner/test:1173:19)
+      at Test.run (node:internal/test_runner/test:1101:12)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Invalid input',
+    expected: 'No decision',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\rules.test.js:78:3
+✖ message wording (review R10): "1 day" singular, "7 days" plural (0.4059ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /for 1 day can/. Input:
+  
+  '2 x Raspberry Pi 4 kit for 1 days can be borrowed (2 in stock).'
+  
+      at TestContext.<anonymous> (file:///C:/Users/USER/Desktop/SoftwareAI/Assignment6/repo/tests/rules.test.js:79:12)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1047:25)
+      at Suite.processPendingSubtests (node:internal/test_runner/test:744:18)
+      at Test.postRun (node:internal/test_runner/test:1173:19)
+      at Test.run (node:internal/test_runner/test:1101:12)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:744:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '2 x Raspberry Pi 4 kit for 1 days can be borrowed (2 in stock).',
+    expected: /for 1 day can/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+EXIT=1

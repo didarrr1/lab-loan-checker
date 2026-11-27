@@ -38,6 +38,10 @@ describe('T11 repeated operation and T12 failure handling', () => {
     assert.notEqual(r.decision, 'Approved');
   });
 
+  test('T12 (review R5): the decision is exactly "No decision", not "Invalid input"', () => {
+    assert.equal(checkLoan({ itemId: 'ARD-01', quantity: '1', days: '1' }, null).decision, 'No decision');
+  });
+
   test('T12: loadCatalog rejects when the network request fails', async () => {
     await assert.rejects(loadCatalog('x', async () => { throw new TypeError('Failed to fetch'); }));
   });
@@ -63,6 +67,17 @@ describe('validation details (AC2, AC4)', () => {
     assert.equal(checkLoan({ itemId: 'VR-04', quantity: '1', days: '14' }, catalog).reason, 'APPROVED');
     assert.equal(checkLoan({ itemId: 'VR-04', quantity: '1', days: '0' }, catalog).reason, 'DAYS_OUT_OF_RANGE');
     assert.equal(checkLoan({ itemId: 'VR-04', quantity: '1', days: '15' }, catalog).reason, 'DAYS_OUT_OF_RANGE');
+  });
+
+  test('order of checks (review R7): quantity format, then days format, then ranges', () => {
+    assert.equal(checkLoan({ itemId: 'ARD-01', quantity: 'x', days: 'x' }, catalog).reason, 'INVALID_QUANTITY');
+    assert.equal(checkLoan({ itemId: 'ARD-01', quantity: '9', days: 'abc' }, catalog).reason, 'INVALID_DAYS');
+    assert.equal(checkLoan({ itemId: 'OSC-03', quantity: '9', days: '3' }, catalog).reason, 'QUANTITY_OUT_OF_RANGE');
+  });
+
+  test('message wording (review R10): "1 day" singular, "7 days" plural', () => {
+    assert.match(checkLoan({ itemId: 'RPI-02', quantity: '2', days: '1' }, catalog).message, /for 1 day can/);
+    assert.match(checkLoan({ itemId: 'RPI-02', quantity: '2', days: '7' }, catalog).message, /for 7 days can/);
   });
 
   test('unknown item id and empty days', () => {

@@ -5,7 +5,7 @@
   "description": "Lab Equipment Loan Checker: code-based vs low-code (Appsmith) comparison, Assignment #06",
   "type": "module",
   "scripts": {
-    "test": "node --test --test-reporter=spec tests/rules.test.js",
+    "test": "node --test --test-reporter=spec tests/rules.test.js tests/catalog.test.js",
     "start": "node tools/serve.js 5186"
   },
   "license": "MIT"

@@ -2,3 +2,9 @@
 ^ Task 1 start: baseline and requirements
 2026-11-27 11:31:14
 ^ Task 1 done (contract + cases); code-based setup/implementation starts
+2026-11-27 11:32:29
+^ code-based implementation v1 done, 20/20 automated tests; UI testing starts
+2026-11-27 11:33:30
+^ code-based UI run T1-T12 done (12/12 as expected)
+2026-11-27 11:37:24
+^ AI review received (10 candidate findings); verification starts
