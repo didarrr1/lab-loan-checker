@@ -1,17 +1,25 @@
-// Presentation layer: reads the form, calls checkLoan, writes the result. Text is written with textContent.
+// Presentation layer: reads the form, calls checkLoan, writes the result.
+// Every value is written with textContent (never as HTML), so catalog or form text cannot inject markup (review R1).
 import { loadCatalog } from './catalog.js';
-import { checkLoan } from './rules.js';
+import { checkLoan, DECISION } from './rules.js';
 
 const $ = (id) => document.getElementById(id);
+const CLASS_BY_DECISION = {
+  [DECISION.APPROVED]: 'ok',
+  [DECISION.REJECTED]: 'bad',
+  [DECISION.INVALID]: 'warn',
+  [DECISION.NONE]: 'neutral',
+};
 let catalog = null;
 let snapshot = '';
 let checks = 0;
 
-function renderCatalog() {
+function renderCatalog(data) {
   const body = $('items');
   const select = $('item');
   body.replaceChildren();
-  for (const item of catalog.items) {
+  select.replaceChildren(new Option('- choose an item -', ''));
+  for (const item of data.items) {
     const row = document.createElement('tr');
     for (const text of [item.id, item.name, String(item.stock), item.maintenance ? 'Maintenance' : 'OK']) {
       const cell = document.createElement('td');
@@ -26,9 +34,10 @@ function renderCatalog() {
 function show(result) {
   const decision = $('decision');
   decision.textContent = result.decision;
-  decision.className = `decision ${result.decision === 'Approved' ? 'ok' : result.decision === 'Rejected' ? 'bad' : 'warn'}`;
+  decision.className = `decision ${CLASS_BY_DECISION[result.decision]}`;
   $('reason-code').textContent = result.reason;
-  $('message').innerHTML = result.message;
+  $('message').textContent = result.message;
+  if (!catalog) return; // no catalog: nothing to compare (review R4)
   checks += 1;
   const unchanged = JSON.stringify(catalog) === snapshot;
   $('integrity').textContent = `Stock unchanged: ${unchanged ? 'yes' : 'NO'} (${checks} checks)`;
@@ -43,11 +52,11 @@ loadCatalog()
   .then((data) => {
     catalog = data;
     snapshot = JSON.stringify(catalog);
-    renderCatalog();
+    renderCatalog(catalog);
+    $('check-btn').disabled = false; // enabled only after a successful load (review R4)
   })
   .catch(() => {
-    $('catalog-error').textContent = 'The catalog could not be loaded. Try again later.';
-    $('check-btn').disabled = true;
-    $('decision').textContent = 'No decision';
-    $('reason-code').textContent = 'CATALOG_UNAVAILABLE';
+    const result = checkLoan({}, null); // one source of truth for the failure state (review R5)
+    $('catalog-error').textContent = result.message;
+    show(result);
   });

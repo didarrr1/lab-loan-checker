@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <title>Lab Equipment Loan Checker (code-based)</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -28,7 +29,7 @@
         <label for="days">Loan days (1-14)</label>
         <input id="days" name="days" type="text" inputmode="numeric" placeholder="e.g. 7">
 
-        <button type="submit" id="check-btn">Check request</button>
+        <button type="submit" id="check-btn" disabled>Check request</button>
       </form>
     </section>
 

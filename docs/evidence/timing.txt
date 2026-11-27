@@ -8,3 +8,5 @@
 ^ code-based UI run T1-T12 done (12/12 as expected)
 2026-11-27 11:37:24
 ^ AI review received (10 candidate findings); verification starts
+2026-11-27 11:40:00
+^ fixes done, 35/35 tests (debugging + fixing time ends)
