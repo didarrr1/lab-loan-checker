@@ -30,6 +30,7 @@ npm start       # local static server on http://127.0.0.1:5186
 ## Evidence
 - `docs/contract.md`: feature contract, acceptance criteria, shared test cases (written before implementation)
 - `docs/evidence/`: raw test outputs, the AI review log, DAST probes, timing log
-- `docs/results.md`: eight-case (12-case) test table, comparison matrix, security checklist, release decision
+- `docs/report/A6_Bakir_Didar_Report.pdf` (and `.md`): full report: 12-case test table, review log, security checklist, comparison matrix, release decision
+- `docs/screenshots/`: screenshots of both implementations
 
 No secrets, API keys or real personal data are stored in this repository.
