@@ -1,0 +1,15 @@
+{
+  "note": "Shared acceptance cases T1-T10 (single checks). T11 (repeated operation) and T12 (catalog failure) are scenario tests in rules.test.js / catalog.test.js.",
+  "cases": [
+    { "id": "T1", "itemId": "ARD-01", "quantity": "2", "days": "7", "decision": "Approved", "reason": "APPROVED" },
+    { "id": "T2", "itemId": "ARD-01", "quantity": "5", "days": "14", "decision": "Approved", "reason": "APPROVED" },
+    { "id": "T3", "itemId": "ARD-01", "quantity": "6", "days": "7", "decision": "Invalid input", "reason": "QUANTITY_OUT_OF_RANGE" },
+    { "id": "T4", "itemId": "ARD-01", "quantity": "1", "days": "15", "decision": "Invalid input", "reason": "DAYS_OUT_OF_RANGE" },
+    { "id": "T5", "itemId": "RPI-02", "quantity": "2", "days": "1", "decision": "Approved", "reason": "APPROVED" },
+    { "id": "T6", "itemId": "RPI-02", "quantity": "3", "days": "7", "decision": "Rejected", "reason": "INSUFFICIENT_STOCK" },
+    { "id": "T7", "itemId": "OSC-03", "quantity": "1", "days": "3", "decision": "Rejected", "reason": "ITEM_UNAVAILABLE" },
+    { "id": "T8", "itemId": "ARD-01", "quantity": "two", "days": "7", "decision": "Invalid input", "reason": "INVALID_QUANTITY" },
+    { "id": "T9", "itemId": "", "quantity": "1", "days": "1", "decision": "Invalid input", "reason": "INVALID_ITEM" },
+    { "id": "T10", "itemId": "VR-04", "quantity": "0", "days": "0", "decision": "Invalid input", "reason": "QUANTITY_OUT_OF_RANGE" }
+  ]
+}
