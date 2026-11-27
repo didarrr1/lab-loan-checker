@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "lab": "SECURITY PROBE - not real data: the OSC-03 name contains HTML to test output encoding",
+  "items": [
+    { "id": "ARD-01", "name": "Arduino Uno starter kit", "stock": 6, "maintenance": false },
+    { "id": "RPI-02", "name": "Raspberry Pi 4 kit", "stock": 2, "maintenance": false },
+    { "id": "OSC-03", "name": "<img src=x onerror=\"document.title='XSS-RAN'\"><b>Digital oscilloscope</b>", "stock": 1, "maintenance": true },
+    { "id": "VR-04", "name": "VR headset", "stock": 3, "maintenance": false }
+  ]
+}
