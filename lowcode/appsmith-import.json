@@ -234,7 +234,12 @@
          "iconAlign": "left",
          "defaultText": "",
          "minDynamicHeight": 4.0,
-         "placeholderText": "e.g. 7"
+         "placeholderText": "e.g. 7",
+         "dynamicPropertyPathList": [
+          {
+           "key": "isDisabled"
+          }
+         ]
         },
         {
          "resetFormOnClick": false,
@@ -981,7 +986,12 @@
          "iconAlign": "left",
          "defaultText": "",
          "minDynamicHeight": 4.0,
-         "placeholderText": "e.g. 7"
+         "placeholderText": "e.g. 7",
+         "dynamicPropertyPathList": [
+          {
+           "key": "isDisabled"
+          }
+         ]
         },
         {
          "resetFormOnClick": false,

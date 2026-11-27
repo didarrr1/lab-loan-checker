@@ -1,0 +1,67 @@
+2026-11-27 12:41:50 +05:00
+final run (parent 867822c)
+node v22.23.5
+$ npm test
+
+> lab-loan-checker@1.0.0 test
+> node --test --test-reporter=spec tests/rules.test.js tests/catalog.test.js
+
+▶ loadCatalog failure handling (review R3)
+  ✔ a valid catalog loads (2.1941ms)
+  ✔ HTTP 500 with a JSON body is rejected (0.5685ms)
+  ✔ invalid JSON is rejected (0.7312ms)
+  ✔ malformed item is rejected: missing stock (0.5284ms)
+  ✔ malformed item is rejected: negative stock (0.2304ms)
+  ✔ malformed item is rejected: maintenance as a string (0.1822ms)
+  ✔ malformed item is rejected: empty id (0.2478ms)
+  ✔ a body without items is rejected (0.3668ms)
+✔ loadCatalog failure handling (review R3) (7.6586ms)
+▶ static checks of the presentation layer (review R1, R2)
+  ✔ ui.js never writes HTML (no innerHTML / outerHTML / insertAdjacentHTML) (15.6714ms)
+  ✔ index.html declares a Content-Security-Policy that blocks inline scripts (2.0834ms)
+  ✔ the check button starts disabled until the catalog is loaded (review R4) (1.8659ms)
+✔ static checks of the presentation layer (review R1, R2) (20.1019ms)
+▶ integration: local dev server (review R6)
+  ✔ malformed URL gets 400, dotfiles get 404, the server stays alive (279.1793ms)
+✔ integration: local dev server (review R6) (279.4523ms)
+▶ shared acceptance cases T1-T10 (tests/cases.json)
+  ✔ T1: ARD-01 qty=2 days=7 -> Approved / APPROVED (2.1284ms)
+  ✔ T2: ARD-01 qty=5 days=14 -> Approved / APPROVED (0.2553ms)
+  ✔ T3: ARD-01 qty=6 days=7 -> Invalid input / QUANTITY_OUT_OF_RANGE (0.3688ms)
+  ✔ T4: ARD-01 qty=1 days=15 -> Invalid input / DAYS_OUT_OF_RANGE (0.3964ms)
+  ✔ T5: RPI-02 qty=2 days=1 -> Approved / APPROVED (0.173ms)
+  ✔ T6: RPI-02 qty=3 days=7 -> Rejected / INSUFFICIENT_STOCK (0.1476ms)
+  ✔ T7: OSC-03 qty=1 days=3 -> Rejected / ITEM_UNAVAILABLE (0.2197ms)
+  ✔ T8: ARD-01 qty=two days=7 -> Invalid input / INVALID_QUANTITY (0.4722ms)
+  ✔ T9: (no item) qty=1 days=1 -> Invalid input / INVALID_ITEM (1.6161ms)
+  ✔ T10: VR-04 qty=0 days=0 -> Invalid input / QUANTITY_OUT_OF_RANGE (0.7289ms)
+✔ shared acceptance cases T1-T10 (tests/cases.json) (8.6326ms)
+▶ T11 repeated operation and T12 failure handling
+  ✔ T11: the same request three times gives the same result and the stock stays 6 (3.0138ms)
+  ✔ T12: no catalog -> CATALOG_UNAVAILABLE, no decision (0.2031ms)
+  ✔ T12 (review R5): the decision is exactly "No decision", not "Invalid input" (0.1262ms)
+  ✔ T12: loadCatalog rejects when the network request fails (0.5085ms)
+✔ T11 repeated operation and T12 failure handling (4.1297ms)
+▶ validation details (AC2, AC4)
+  ✔ parseWholeNumber accepts only plain whole numbers (0.3302ms)
+  ✔ quantity boundaries: 1 and 5 accepted, 0 and 6 rejected (0.2075ms)
+  ✔ days boundaries: 1 and 14 accepted, 0 and 15 rejected (0.2137ms)
+  ✔ order of checks (review R7): quantity format, then days format, then ranges (0.2167ms)
+  ✔ message wording (review R10): "1 day" singular, "7 days" plural (0.4297ms)
+  ✔ unknown item id and empty days (0.2227ms)
+✔ validation details (AC2, AC4) (1.9638ms)
+▶ rules and data integrity (AC3, AC5)
+  ✔ stock rule: quantity equal to stock is approved, one more is rejected (0.2994ms)
+  ✔ maintenance wins over the stock rule (0.2053ms)
+  ✔ the loaded catalog is frozen and cannot be changed by mistake (1.3869ms)
+✔ rules and data integrity (AC3, AC5) (2.1157ms)
+ℹ tests 35
+ℹ suites 7
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 577.4559
+
+EXIT=0

@@ -14,3 +14,7 @@
 ^ code-based retest after fixes done (XSS probe, T12, T5, 375 px, DAST); low-code setup starts
 2026-11-27 12:09:21
 ^ low-code app built (import of my own JSON + GetCatalog API + run-on-load) and deployed; low-code testing starts
+2026-11-27 12:12:23
+^ low-code T1-T11 done in the deployed app (11/11 as expected)
+2026-11-27 12:40:24
+^ low-code security probe, T12 (found defect L1: button not disabled; fixed in editor), retest, 375 px done

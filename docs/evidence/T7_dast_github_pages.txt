@@ -1,0 +1,15 @@
+2026-11-27 12:41:31 +0500 safe runtime checks (DAST) of MY OWN public demo only: https://didarrr1.github.io/lab-loan-checker/
+GET / -> 200
+GET /data/catalog.json -> 200
+GET /.git/config -> 404
+GET /src/ui.js -> 200
+--- response headers of GET / ---
+HTTP/1.1 200 OK
+Server: GitHub.com
+Content-Type: text/html; charset=utf-8
+Access-Control-Allow-Origin: *
+Strict-Transport-Security: max-age=31556952
+--- served ui.js uses textContent only? ---
+innerHTML occurrences: 0
+--- CSP meta in served index.html ---
+Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"

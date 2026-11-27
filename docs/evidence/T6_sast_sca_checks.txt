@@ -1,0 +1,30 @@
+2026-11-27 12:41:16 +0500 SAST (source inspection) and SCA (dependency review), commit 867822c, node v22.23.5, npm 10.9.9
+
+--- SAST 1: dangerous DOM sinks / dynamic code in src/ (expect none) ---
+$ grep -nE "innerHTML|outerHTML|insertAdjacentHTML|document\.write|eval\(|new Function|setTimeout\(\s*[\"']" src/*.js
+(no matches)
+
+--- SAST 2: secrets-like strings in tracked files (expect none) ---
+$ git grep -nIiE "(api[_-]?key|secret|password|token|BEGIN [A-Z ]*PRIVATE KEY|ghp_[A-Za-z0-9]{20,})" -- . ":!docs" ":!tests"
+README.md:35:No secrets, API keys or real personal data are stored in this repository.
+
+--- SAST 3: CSP present in index.html ---
+6:  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+
+--- SAST 4: external URLs loaded by the page (expect none: everything is same-origin) ---
+(no matches)
+
+--- SCA 1: declared dependencies (package.json) ---
+dependencies: {}  devDependencies: {}
+
+--- SCA 2: npm ls --all ---
+lab-loan-checker@1.0.0 C:\Users\USER\Desktop\SoftwareAI\Assignment6\repo
+`-- (empty)
+
+
+--- SCA 3: npm audit ---
+npm error code ENOLOCK
+npm error audit This command requires an existing lockfile.
+npm error audit Try creating one first with: npm i --package-lock-only
+npm error audit Original error: loadVirtual requires existing shrinkwrap file
+npm error A complete log of this run can be found in: C:\Users\USER\AppData\Local\npm-cache\_logs\2026-11-27T07_41_21_517Z-debug-0.log
