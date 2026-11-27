@@ -1,0 +1,1972 @@
+{
+ "sourceWorkflowList": [],
+ "artifactJsonType": "APPLICATION",
+ "clientSchemaVersion": 2.0,
+ "serverSchemaVersion": 13.0,
+ "exportedApplication": {
+  "name": "Lab Equipment Loan Checker (low-code)",
+  "isPublic": false,
+  "pages": [
+   {
+    "id": "Page1",
+    "isDefault": true
+   }
+  ],
+  "publishedPages": [
+   {
+    "id": "Page1",
+    "isDefault": true
+   }
+  ],
+  "viewMode": false,
+  "appIsExample": false,
+  "unreadCommentThreads": 0.0,
+  "color": "#D9E7FF",
+  "slug": "lab-equipment-loan-checker-low-code",
+  "unpublishedCustomJSLibs": [],
+  "publishedCustomJSLibs": [],
+  "evaluationVersion": 2.0,
+  "applicationVersion": 2.0,
+  "collapseInvisibleWidgets": true,
+  "isManualUpdate": false,
+  "deleted": false
+ },
+ "datasourceList": [],
+ "customJSLibList": [],
+ "pageList": [
+  {
+   "unpublishedPage": {
+    "name": "Page1",
+    "slug": "page1",
+    "layouts": [
+     {
+      "viewMode": false,
+      "dsl": {
+       "widgetName": "MainContainer",
+       "backgroundColor": "none",
+       "rightColumn": 4896.0,
+       "snapColumns": 64.0,
+       "detachFromLayout": true,
+       "widgetId": "0",
+       "topRow": 0.0,
+       "bottomRow": 890.0,
+       "containerStyle": "none",
+       "snapRows": 124.0,
+       "parentRowSpace": 1.0,
+       "type": "CANVAS_WIDGET",
+       "canExtend": true,
+       "version": 95.0,
+       "minHeight": 1292.0,
+       "dynamicTriggerPathList": [],
+       "parentColumnSpace": 1.0,
+       "dynamicBindingPathList": [],
+       "leftColumn": 0.0,
+       "children": [
+        {
+         "needsErrorInfo": false,
+         "boxShadow": "none",
+         "mobileBottomRow": 17.0,
+         "widgetName": "QuantityInput",
+         "topRow": 10.0,
+         "bottomRow": 17.0,
+         "parentRowSpace": 10.0,
+         "labelWidth": 5.0,
+         "autoFocus": false,
+         "type": "INPUT_WIDGET_V2",
+         "mobileRightColumn": 20.0,
+         "animateLoading": true,
+         "parentColumnSpace": 6.25,
+         "dynamicTriggerPathList": [],
+         "resetOnSubmit": true,
+         "leftColumn": 0.0,
+         "dynamicBindingPathList": [
+          {
+           "key": "accentColor"
+          },
+          {
+           "key": "borderRadius"
+          }
+         ],
+         "labelPosition": "Top",
+         "labelStyle": "",
+         "inputType": "TEXT",
+         "isDisabled": false,
+         "key": "a6k000yy",
+         "labelTextSize": "0.875rem",
+         "isRequired": false,
+         "rightColumn": 64.0,
+         "dynamicHeight": "FIXED",
+         "widgetId": "a6w000xx",
+         "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+         "showStepArrows": false,
+         "minWidth": 450.0,
+         "isVisible": true,
+         "label": "Quantity (1-5)",
+         "version": 2.0,
+         "parentId": "0",
+         "labelAlignment": "left",
+         "renderMode": "CANVAS",
+         "isLoading": false,
+         "mobileTopRow": 10.0,
+         "responsiveBehavior": "fill",
+         "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+         "mobileLeftColumn": 0.0,
+         "maxDynamicHeight": 9000.0,
+         "iconAlign": "left",
+         "defaultText": "",
+         "minDynamicHeight": 4.0,
+         "placeholderText": "e.g. 2"
+        },
+        {
+         "needsErrorInfo": false,
+         "boxShadow": "none",
+         "mobileBottomRow": 25.0,
+         "widgetName": "DaysInput",
+         "topRow": 18.0,
+         "bottomRow": 25.0,
+         "parentRowSpace": 10.0,
+         "labelWidth": 5.0,
+         "autoFocus": false,
+         "type": "INPUT_WIDGET_V2",
+         "mobileRightColumn": 20.0,
+         "animateLoading": true,
+         "parentColumnSpace": 6.25,
+         "dynamicTriggerPathList": [],
+         "resetOnSubmit": true,
+         "leftColumn": 0.0,
+         "dynamicBindingPathList": [
+          {
+           "key": "accentColor"
+          },
+          {
+           "key": "borderRadius"
+          }
+         ],
+         "labelPosition": "Top",
+         "labelStyle": "",
+         "inputType": "TEXT",
+         "isDisabled": false,
+         "key": "a6k001yy",
+         "labelTextSize": "0.875rem",
+         "isRequired": false,
+         "rightColumn": 64.0,
+         "dynamicHeight": "FIXED",
+         "widgetId": "a6w001xx",
+         "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+         "showStepArrows": false,
+         "minWidth": 450.0,
+         "isVisible": true,
+         "label": "Loan days (1-14)",
+         "version": 2.0,
+         "parentId": "0",
+         "labelAlignment": "left",
+         "renderMode": "CANVAS",
+         "isLoading": false,
+         "mobileTopRow": 18.0,
+         "responsiveBehavior": "fill",
+         "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+         "mobileLeftColumn": 0.0,
+         "maxDynamicHeight": 9000.0,
+         "iconAlign": "left",
+         "defaultText": "",
+         "minDynamicHeight": 4.0,
+         "placeholderText": "e.g. 7"
+        },
+        {
+         "resetFormOnClick": false,
+         "needsErrorInfo": false,
+         "boxShadow": "none",
+         "mobileBottomRow": 30.0,
+         "widgetName": "CheckButton",
+         "onClick": "{{Checker.run();}}",
+         "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+         "topRow": 26.0,
+         "bottomRow": 30.0,
+         "parentRowSpace": 10.0,
+         "type": "BUTTON_WIDGET",
+         "mobileRightColumn": 16.0,
+         "animateLoading": true,
+         "parentColumnSpace": 6.25,
+         "dynamicTriggerPathList": [
+          {
+           "key": "onClick"
+          }
+         ],
+         "leftColumn": 0.0,
+         "dynamicBindingPathList": [
+          {
+           "key": "buttonColor"
+          },
+          {
+           "key": "borderRadius"
+          },
+          {
+           "key": "isDisabled"
+          }
+         ],
+         "text": "Check request",
+         "isDisabled": "{{!Checker.catalog()}}",
+         "key": "a6k002yy",
+         "rightColumn": 64.0,
+         "isDefaultClickDisabled": true,
+         "widgetId": "a6w002xx",
+         "minWidth": 120.0,
+         "isVisible": true,
+         "recaptchaType": "V3",
+         "version": 1.0,
+         "parentId": "0",
+         "renderMode": "CANVAS",
+         "isLoading": false,
+         "mobileTopRow": 26.0,
+         "responsiveBehavior": "hug",
+         "disabledWhenInvalid": false,
+         "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+         "mobileLeftColumn": 0.0,
+         "buttonVariant": "PRIMARY",
+         "placement": "CENTER"
+        },
+        {
+         "needsErrorInfo": false,
+         "mobileBottomRow": 35.0,
+         "widgetName": "CatalogErrorText",
+         "topRow": 31.0,
+         "bottomRow": 35.0,
+         "parentRowSpace": 10.0,
+         "type": "TEXT_WIDGET",
+         "mobileRightColumn": 16.0,
+         "animateLoading": true,
+         "overflow": "NONE",
+         "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+         "parentColumnSpace": 6.25,
+         "dynamicTriggerPathList": [],
+         "leftColumn": 0.0,
+         "dynamicBindingPathList": [
+          {
+           "key": "truncateButtonColor"
+          },
+          {
+           "key": "fontFamily"
+          },
+          {
+           "key": "borderRadius"
+          },
+          {
+           "key": "text"
+          }
+         ],
+         "shouldTruncate": false,
+         "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+         "text": "{{Checker.catalog() ? '' : 'The catalog could not be loaded. Try again later.'}}",
+         "key": "a6k003yy",
+         "rightColumn": 64.0,
+         "textAlign": "LEFT",
+         "dynamicHeight": "AUTO_HEIGHT",
+         "widgetId": "a6w003xx",
+         "minWidth": 450.0,
+         "isVisible": true,
+         "fontStyle": "BOLD",
+         "textColor": "#B3261E",
+         "version": 1.0,
+         "parentId": "0",
+         "renderMode": "CANVAS",
+         "isLoading": false,
+         "mobileTopRow": 31.0,
+         "responsiveBehavior": "fill",
+         "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+         "mobileLeftColumn": 0.0,
+         "maxDynamicHeight": 9000.0,
+         "fontSize": "1rem",
+         "minDynamicHeight": 4.0
+        },
+        {
+         "needsErrorInfo": false,
+         "mobileBottomRow": 40.0,
+         "widgetName": "DecisionText",
+         "topRow": 36.0,
+         "bottomRow": 40.0,
+         "parentRowSpace": 10.0,
+         "type": "TEXT_WIDGET",
+         "mobileRightColumn": 16.0,
+         "animateLoading": true,
+         "overflow": "NONE",
+         "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+         "parentColumnSpace": 6.25,
+         "dynamicTriggerPathList": [],
+         "leftColumn": 0.0,
+         "dynamicBindingPathList": [
+          {
+           "key": "truncateButtonColor"
+          },
+          {
+           "key": "fontFamily"
+          },
+          {
+           "key": "borderRadius"
+          },
+          {
+           "key": "text"
+          }
+         ],
+         "shouldTruncate": false,
+         "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+         "text": "Decision: {{Checker.result.decision}}",
+         "key": "a6k004yy",
+         "rightColumn": 64.0,
+         "textAlign": "LEFT",
+         "dynamicHeight": "AUTO_HEIGHT",
+         "widgetId": "a6w004xx",
+         "minWidth": 450.0,
+         "isVisible": true,
+         "fontStyle": "BOLD",
+         "textColor": "#231F20",
+         "version": 1.0,
+         "parentId": "0",
+         "renderMode": "CANVAS",
+         "isLoading": false,
+         "mobileTopRow": 36.0,
+         "responsiveBehavior": "fill",
+         "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+         "mobileLeftColumn": 0.0,
+         "maxDynamicHeight": 9000.0,
+         "fontSize": "1rem",
+         "minDynamicHeight": 4.0
+        },
+        {
+         "needsErrorInfo": false,
+         "mobileBottomRow": 45.0,
+         "widgetName": "ReasonText",
+         "topRow": 41.0,
+         "bottomRow": 45.0,
+         "parentRowSpace": 10.0,
+         "type": "TEXT_WIDGET",
+         "mobileRightColumn": 16.0,
+         "animateLoading": true,
+         "overflow": "NONE",
+         "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+         "parentColumnSpace": 6.25,
+         "dynamicTriggerPathList": [],
+         "leftColumn": 0.0,
+         "dynamicBindingPathList": [
+          {
+           "key": "truncateButtonColor"
+          },
+          {
+           "key": "fontFamily"
+          },
+          {
+           "key": "borderRadius"
+          },
+          {
+           "key": "text"
+          }
+         ],
+         "shouldTruncate": false,
+         "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+         "text": "Reason code: {{Checker.result.reason}}",
+         "key": "a6k005yy",
+         "rightColumn": 64.0,
+         "textAlign": "LEFT",
+         "dynamicHeight": "AUTO_HEIGHT",
+         "widgetId": "a6w005xx",
+         "minWidth": 450.0,
+         "isVisible": true,
+         "fontStyle": "",
+         "textColor": "#231F20",
+         "version": 1.0,
+         "parentId": "0",
+         "renderMode": "CANVAS",
+         "isLoading": false,
+         "mobileTopRow": 41.0,
+         "responsiveBehavior": "fill",
+         "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+         "mobileLeftColumn": 0.0,
+         "maxDynamicHeight": 9000.0,
+         "fontSize": "1rem",
+         "minDynamicHeight": 4.0
+        },
+        {
+         "needsErrorInfo": false,
+         "mobileBottomRow": 51.0,
+         "widgetName": "MessageText",
+         "topRow": 46.0,
+         "bottomRow": 51.0,
+         "parentRowSpace": 10.0,
+         "type": "TEXT_WIDGET",
+         "mobileRightColumn": 16.0,
+         "animateLoading": true,
+         "overflow": "NONE",
+         "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+         "parentColumnSpace": 6.25,
+         "dynamicTriggerPathList": [],
+         "leftColumn": 0.0,
+         "dynamicBindingPathList": [
+          {
+           "key": "truncateButtonColor"
+          },
+          {
+           "key": "fontFamily"
+          },
+          {
+           "key": "borderRadius"
+          },
+          {
+           "key": "text"
+          }
+         ],
+         "shouldTruncate": false,
+         "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+         "text": "{{Checker.result.message}}",
+         "key": "a6k006yy",
+         "rightColumn": 64.0,
+         "textAlign": "LEFT",
+         "dynamicHeight": "AUTO_HEIGHT",
+         "widgetId": "a6w006xx",
+         "minWidth": 450.0,
+         "isVisible": true,
+         "fontStyle": "",
+         "textColor": "#231F20",
+         "version": 1.0,
+         "parentId": "0",
+         "renderMode": "CANVAS",
+         "isLoading": false,
+         "mobileTopRow": 46.0,
+         "responsiveBehavior": "fill",
+         "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+         "mobileLeftColumn": 0.0,
+         "maxDynamicHeight": 9000.0,
+         "fontSize": "1rem",
+         "minDynamicHeight": 4.0
+        },
+        {
+         "needsErrorInfo": false,
+         "mobileBottomRow": 56.0,
+         "widgetName": "IntegrityText",
+         "topRow": 52.0,
+         "bottomRow": 56.0,
+         "parentRowSpace": 10.0,
+         "type": "TEXT_WIDGET",
+         "mobileRightColumn": 16.0,
+         "animateLoading": true,
+         "overflow": "NONE",
+         "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+         "parentColumnSpace": 6.25,
+         "dynamicTriggerPathList": [],
+         "leftColumn": 0.0,
+         "dynamicBindingPathList": [
+          {
+           "key": "truncateButtonColor"
+          },
+          {
+           "key": "fontFamily"
+          },
+          {
+           "key": "borderRadius"
+          },
+          {
+           "key": "text"
+          }
+         ],
+         "shouldTruncate": false,
+         "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+         "text": "{{Checker.integrity()}}",
+         "key": "a6k007yy",
+         "rightColumn": 64.0,
+         "textAlign": "LEFT",
+         "dynamicHeight": "AUTO_HEIGHT",
+         "widgetId": "a6w007xx",
+         "minWidth": 450.0,
+         "isVisible": true,
+         "fontStyle": "",
+         "textColor": "#231F20",
+         "version": 1.0,
+         "parentId": "0",
+         "renderMode": "CANVAS",
+         "isLoading": false,
+         "mobileTopRow": 52.0,
+         "responsiveBehavior": "fill",
+         "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+         "mobileLeftColumn": 0.0,
+         "maxDynamicHeight": 9000.0,
+         "fontSize": "1rem",
+         "minDynamicHeight": 4.0
+        },
+        {
+         "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+         "borderColor": "#E0DEDE",
+         "isVisibleDownload": true,
+         "topRow": 60.0,
+         "isSortable": true,
+         "type": "TABLE_WIDGET_V2",
+         "inlineEditingSaveOption": "ROW_LEVEL",
+         "animateLoading": true,
+         "dynamicBindingPathList": [
+          {
+           "key": "accentColor"
+          },
+          {
+           "key": "borderRadius"
+          },
+          {
+           "key": "boxShadow"
+          },
+          {
+           "key": "tableData"
+          },
+          {
+           "key": "primaryColumns.id.computedValue"
+          },
+          {
+           "key": "primaryColumns.start.computedValue"
+          },
+          {
+           "key": "primaryColumns.end.computedValue"
+          }
+         ],
+         "leftColumn": 0.0,
+         "delimiter": ",",
+         "customIsLoadingValue": "",
+         "defaultSelectedRowIndex": 0.0,
+         "flexVerticalAlignment": "start",
+         "cachedTableData": {},
+         "dynamicHeight": "FIXED",
+         "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+         "isVisibleFilters": false,
+         "isVisible": true,
+         "enableClientSideSearch": true,
+         "version": 2.0,
+         "totalRecordsCount": 0.0,
+         "isLoading": false,
+         "childStylesheet": {
+          "button": {
+           "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+           "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+           "boxShadow": "none"
+          },
+          "menuButton": {
+           "menuColor": "{{appsmith.theme.colors.primaryColor}}",
+           "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+           "boxShadow": "none"
+          },
+          "iconButton": {
+           "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+           "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+           "boxShadow": "none"
+          },
+          "editActions": {
+           "saveButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+           "saveBorderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+           "discardButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+           "discardBorderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}"
+          }
+         },
+         "customIsLoading": false,
+         "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+         "columnUpdatedAt": 1795690855968.0,
+         "defaultSelectedRowIndices": [
+          0.0
+         ],
+         "needsErrorInfo": false,
+         "mobileBottomRow": 88.0,
+         "widgetName": "CatalogTable",
+         "defaultPageSize": 0.0,
+         "columnOrder": [
+          "id",
+          "start",
+          "end"
+         ],
+         "dynamicPropertyPathList": [
+          {
+           "key": "tableData"
+          }
+         ],
+         "bottomRow": 88.0,
+         "columnWidthMap": {},
+         "parentRowSpace": 10.0,
+         "mobileRightColumn": 14.0,
+         "parentColumnSpace": 6.25,
+         "dynamicTriggerPathList": [],
+         "borderWidth": "1",
+         "primaryColumns": {
+          "id": {
+           "allowCellWrapping": false,
+           "allowHeaderWrapping": false,
+           "allowSameOptionsInNewRow": true,
+           "index": 0.0,
+           "width": 150.0,
+           "originalId": "id",
+           "id": "id",
+           "alias": "id",
+           "horizontalAlignment": "LEFT",
+           "verticalAlignment": "CENTER",
+           "columnType": "text",
+           "textSize": "0.875rem",
+           "enableFilter": true,
+           "enableSort": true,
+           "isVisible": true,
+           "isDisabled": false,
+           "isCellEditable": false,
+           "isEditable": false,
+           "isCellVisible": true,
+           "isDerived": false,
+           "label": "id",
+           "isSaveVisible": true,
+           "isDiscardVisible": true,
+           "computedValue": "{{(() => { const tableData = BookingsTable.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"id\"])) : id })()}}",
+           "sticky": "",
+           "validation": {},
+           "currencyCode": "USD",
+           "decimals": 0.0,
+           "thousandSeparator": true,
+           "notation": "standard"
+          },
+          "start": {
+           "allowCellWrapping": false,
+           "allowHeaderWrapping": false,
+           "allowSameOptionsInNewRow": true,
+           "index": 1.0,
+           "width": 150.0,
+           "originalId": "start",
+           "id": "start",
+           "alias": "start",
+           "horizontalAlignment": "LEFT",
+           "verticalAlignment": "CENTER",
+           "columnType": "text",
+           "textSize": "0.875rem",
+           "enableFilter": true,
+           "enableSort": true,
+           "isVisible": true,
+           "isDisabled": false,
+           "isCellEditable": false,
+           "isEditable": false,
+           "isCellVisible": true,
+           "isDerived": false,
+           "label": "start",
+           "isSaveVisible": true,
+           "isDiscardVisible": true,
+           "computedValue": "{{(() => { const tableData = BookingsTable.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"start\"])) : start })()}}",
+           "sticky": "",
+           "validation": {},
+           "currencyCode": "USD",
+           "decimals": 0.0,
+           "thousandSeparator": true,
+           "notation": "standard"
+          },
+          "end": {
+           "allowCellWrapping": false,
+           "allowHeaderWrapping": false,
+           "allowSameOptionsInNewRow": true,
+           "index": 2.0,
+           "width": 150.0,
+           "originalId": "end",
+           "id": "end",
+           "alias": "end",
+           "horizontalAlignment": "LEFT",
+           "verticalAlignment": "CENTER",
+           "columnType": "text",
+           "textSize": "0.875rem",
+           "enableFilter": true,
+           "enableSort": true,
+           "isVisible": true,
+           "isDisabled": false,
+           "isCellEditable": false,
+           "isEditable": false,
+           "isCellVisible": true,
+           "isDerived": false,
+           "label": "end",
+           "isSaveVisible": true,
+           "isDiscardVisible": true,
+           "computedValue": "{{(() => { const tableData = BookingsTable.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"end\"])) : end })()}}",
+           "sticky": "",
+           "validation": {},
+           "currencyCode": "USD",
+           "decimals": 0.0,
+           "thousandSeparator": true,
+           "notation": "standard"
+          }
+         },
+         "key": "a6k008yy",
+         "canFreezeColumn": true,
+         "endOfData": false,
+         "rightColumn": 64.0,
+         "textSize": "0.875rem",
+         "widgetId": "a6w008xx",
+         "minWidth": 450.0,
+         "tableData": "{{Checker.catalog() ? Checker.catalog().items : []}}",
+         "label": "Data",
+         "searchKey": "",
+         "parentId": "0",
+         "renderMode": "CANVAS",
+         "mobileTopRow": 60.0,
+         "horizontalAlignment": "LEFT",
+         "isVisibleSearch": true,
+         "autoHeightRowCount": 10.0,
+         "responsiveBehavior": "fill",
+         "mobileLeftColumn": 0.0,
+         "isVisiblePagination": true,
+         "maxDynamicHeight": 9000.0,
+         "minDynamicHeight": 4.0,
+         "verticalAlignment": "CENTER"
+        }
+       ]
+      },
+      "layoutOnLoadActions": [],
+      "layoutOnLoadActionErrors": [],
+      "validOnPageLoadActions": true,
+      "id": "Page1",
+      "deleted": false,
+      "policies": [],
+      "userPermissions": []
+     }
+    ],
+    "userPermissions": [],
+    "policyMap": {}
+   },
+   "publishedPage": {
+    "name": "Page1",
+    "slug": "page1",
+    "layouts": [
+     {
+      "viewMode": false,
+      "dsl": {
+       "widgetName": "MainContainer",
+       "backgroundColor": "none",
+       "rightColumn": 4896.0,
+       "snapColumns": 64.0,
+       "detachFromLayout": true,
+       "widgetId": "0",
+       "topRow": 0.0,
+       "bottomRow": 890.0,
+       "containerStyle": "none",
+       "snapRows": 124.0,
+       "parentRowSpace": 1.0,
+       "type": "CANVAS_WIDGET",
+       "canExtend": true,
+       "version": 95.0,
+       "minHeight": 1292.0,
+       "dynamicTriggerPathList": [],
+       "parentColumnSpace": 1.0,
+       "dynamicBindingPathList": [],
+       "leftColumn": 0.0,
+       "children": [
+        {
+         "needsErrorInfo": false,
+         "boxShadow": "none",
+         "mobileBottomRow": 17.0,
+         "widgetName": "QuantityInput",
+         "topRow": 10.0,
+         "bottomRow": 17.0,
+         "parentRowSpace": 10.0,
+         "labelWidth": 5.0,
+         "autoFocus": false,
+         "type": "INPUT_WIDGET_V2",
+         "mobileRightColumn": 20.0,
+         "animateLoading": true,
+         "parentColumnSpace": 6.25,
+         "dynamicTriggerPathList": [],
+         "resetOnSubmit": true,
+         "leftColumn": 0.0,
+         "dynamicBindingPathList": [
+          {
+           "key": "accentColor"
+          },
+          {
+           "key": "borderRadius"
+          }
+         ],
+         "labelPosition": "Top",
+         "labelStyle": "",
+         "inputType": "TEXT",
+         "isDisabled": false,
+         "key": "a6k000yy",
+         "labelTextSize": "0.875rem",
+         "isRequired": false,
+         "rightColumn": 64.0,
+         "dynamicHeight": "FIXED",
+         "widgetId": "a6w000xx",
+         "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+         "showStepArrows": false,
+         "minWidth": 450.0,
+         "isVisible": true,
+         "label": "Quantity (1-5)",
+         "version": 2.0,
+         "parentId": "0",
+         "labelAlignment": "left",
+         "renderMode": "CANVAS",
+         "isLoading": false,
+         "mobileTopRow": 10.0,
+         "responsiveBehavior": "fill",
+         "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+         "mobileLeftColumn": 0.0,
+         "maxDynamicHeight": 9000.0,
+         "iconAlign": "left",
+         "defaultText": "",
+         "minDynamicHeight": 4.0,
+         "placeholderText": "e.g. 2"
+        },
+        {
+         "needsErrorInfo": false,
+         "boxShadow": "none",
+         "mobileBottomRow": 25.0,
+         "widgetName": "DaysInput",
+         "topRow": 18.0,
+         "bottomRow": 25.0,
+         "parentRowSpace": 10.0,
+         "labelWidth": 5.0,
+         "autoFocus": false,
+         "type": "INPUT_WIDGET_V2",
+         "mobileRightColumn": 20.0,
+         "animateLoading": true,
+         "parentColumnSpace": 6.25,
+         "dynamicTriggerPathList": [],
+         "resetOnSubmit": true,
+         "leftColumn": 0.0,
+         "dynamicBindingPathList": [
+          {
+           "key": "accentColor"
+          },
+          {
+           "key": "borderRadius"
+          }
+         ],
+         "labelPosition": "Top",
+         "labelStyle": "",
+         "inputType": "TEXT",
+         "isDisabled": false,
+         "key": "a6k001yy",
+         "labelTextSize": "0.875rem",
+         "isRequired": false,
+         "rightColumn": 64.0,
+         "dynamicHeight": "FIXED",
+         "widgetId": "a6w001xx",
+         "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+         "showStepArrows": false,
+         "minWidth": 450.0,
+         "isVisible": true,
+         "label": "Loan days (1-14)",
+         "version": 2.0,
+         "parentId": "0",
+         "labelAlignment": "left",
+         "renderMode": "CANVAS",
+         "isLoading": false,
+         "mobileTopRow": 18.0,
+         "responsiveBehavior": "fill",
+         "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+         "mobileLeftColumn": 0.0,
+         "maxDynamicHeight": 9000.0,
+         "iconAlign": "left",
+         "defaultText": "",
+         "minDynamicHeight": 4.0,
+         "placeholderText": "e.g. 7"
+        },
+        {
+         "resetFormOnClick": false,
+         "needsErrorInfo": false,
+         "boxShadow": "none",
+         "mobileBottomRow": 30.0,
+         "widgetName": "CheckButton",
+         "onClick": "{{Checker.run();}}",
+         "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+         "topRow": 26.0,
+         "bottomRow": 30.0,
+         "parentRowSpace": 10.0,
+         "type": "BUTTON_WIDGET",
+         "mobileRightColumn": 16.0,
+         "animateLoading": true,
+         "parentColumnSpace": 6.25,
+         "dynamicTriggerPathList": [
+          {
+           "key": "onClick"
+          }
+         ],
+         "leftColumn": 0.0,
+         "dynamicBindingPathList": [
+          {
+           "key": "buttonColor"
+          },
+          {
+           "key": "borderRadius"
+          },
+          {
+           "key": "isDisabled"
+          }
+         ],
+         "text": "Check request",
+         "isDisabled": "{{!Checker.catalog()}}",
+         "key": "a6k002yy",
+         "rightColumn": 64.0,
+         "isDefaultClickDisabled": true,
+         "widgetId": "a6w002xx",
+         "minWidth": 120.0,
+         "isVisible": true,
+         "recaptchaType": "V3",
+         "version": 1.0,
+         "parentId": "0",
+         "renderMode": "CANVAS",
+         "isLoading": false,
+         "mobileTopRow": 26.0,
+         "responsiveBehavior": "hug",
+         "disabledWhenInvalid": false,
+         "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+         "mobileLeftColumn": 0.0,
+         "buttonVariant": "PRIMARY",
+         "placement": "CENTER"
+        },
+        {
+         "needsErrorInfo": false,
+         "mobileBottomRow": 35.0,
+         "widgetName": "CatalogErrorText",
+         "topRow": 31.0,
+         "bottomRow": 35.0,
+         "parentRowSpace": 10.0,
+         "type": "TEXT_WIDGET",
+         "mobileRightColumn": 16.0,
+         "animateLoading": true,
+         "overflow": "NONE",
+         "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+         "parentColumnSpace": 6.25,
+         "dynamicTriggerPathList": [],
+         "leftColumn": 0.0,
+         "dynamicBindingPathList": [
+          {
+           "key": "truncateButtonColor"
+          },
+          {
+           "key": "fontFamily"
+          },
+          {
+           "key": "borderRadius"
+          },
+          {
+           "key": "text"
+          }
+         ],
+         "shouldTruncate": false,
+         "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+         "text": "{{Checker.catalog() ? '' : 'The catalog could not be loaded. Try again later.'}}",
+         "key": "a6k003yy",
+         "rightColumn": 64.0,
+         "textAlign": "LEFT",
+         "dynamicHeight": "AUTO_HEIGHT",
+         "widgetId": "a6w003xx",
+         "minWidth": 450.0,
+         "isVisible": true,
+         "fontStyle": "BOLD",
+         "textColor": "#B3261E",
+         "version": 1.0,
+         "parentId": "0",
+         "renderMode": "CANVAS",
+         "isLoading": false,
+         "mobileTopRow": 31.0,
+         "responsiveBehavior": "fill",
+         "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+         "mobileLeftColumn": 0.0,
+         "maxDynamicHeight": 9000.0,
+         "fontSize": "1rem",
+         "minDynamicHeight": 4.0
+        },
+        {
+         "needsErrorInfo": false,
+         "mobileBottomRow": 40.0,
+         "widgetName": "DecisionText",
+         "topRow": 36.0,
+         "bottomRow": 40.0,
+         "parentRowSpace": 10.0,
+         "type": "TEXT_WIDGET",
+         "mobileRightColumn": 16.0,
+         "animateLoading": true,
+         "overflow": "NONE",
+         "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+         "parentColumnSpace": 6.25,
+         "dynamicTriggerPathList": [],
+         "leftColumn": 0.0,
+         "dynamicBindingPathList": [
+          {
+           "key": "truncateButtonColor"
+          },
+          {
+           "key": "fontFamily"
+          },
+          {
+           "key": "borderRadius"
+          },
+          {
+           "key": "text"
+          }
+         ],
+         "shouldTruncate": false,
+         "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+         "text": "Decision: {{Checker.result.decision}}",
+         "key": "a6k004yy",
+         "rightColumn": 64.0,
+         "textAlign": "LEFT",
+         "dynamicHeight": "AUTO_HEIGHT",
+         "widgetId": "a6w004xx",
+         "minWidth": 450.0,
+         "isVisible": true,
+         "fontStyle": "BOLD",
+         "textColor": "#231F20",
+         "version": 1.0,
+         "parentId": "0",
+         "renderMode": "CANVAS",
+         "isLoading": false,
+         "mobileTopRow": 36.0,
+         "responsiveBehavior": "fill",
+         "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+         "mobileLeftColumn": 0.0,
+         "maxDynamicHeight": 9000.0,
+         "fontSize": "1rem",
+         "minDynamicHeight": 4.0
+        },
+        {
+         "needsErrorInfo": false,
+         "mobileBottomRow": 45.0,
+         "widgetName": "ReasonText",
+         "topRow": 41.0,
+         "bottomRow": 45.0,
+         "parentRowSpace": 10.0,
+         "type": "TEXT_WIDGET",
+         "mobileRightColumn": 16.0,
+         "animateLoading": true,
+         "overflow": "NONE",
+         "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+         "parentColumnSpace": 6.25,
+         "dynamicTriggerPathList": [],
+         "leftColumn": 0.0,
+         "dynamicBindingPathList": [
+          {
+           "key": "truncateButtonColor"
+          },
+          {
+           "key": "fontFamily"
+          },
+          {
+           "key": "borderRadius"
+          },
+          {
+           "key": "text"
+          }
+         ],
+         "shouldTruncate": false,
+         "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+         "text": "Reason code: {{Checker.result.reason}}",
+         "key": "a6k005yy",
+         "rightColumn": 64.0,
+         "textAlign": "LEFT",
+         "dynamicHeight": "AUTO_HEIGHT",
+         "widgetId": "a6w005xx",
+         "minWidth": 450.0,
+         "isVisible": true,
+         "fontStyle": "",
+         "textColor": "#231F20",
+         "version": 1.0,
+         "parentId": "0",
+         "renderMode": "CANVAS",
+         "isLoading": false,
+         "mobileTopRow": 41.0,
+         "responsiveBehavior": "fill",
+         "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+         "mobileLeftColumn": 0.0,
+         "maxDynamicHeight": 9000.0,
+         "fontSize": "1rem",
+         "minDynamicHeight": 4.0
+        },
+        {
+         "needsErrorInfo": false,
+         "mobileBottomRow": 51.0,
+         "widgetName": "MessageText",
+         "topRow": 46.0,
+         "bottomRow": 51.0,
+         "parentRowSpace": 10.0,
+         "type": "TEXT_WIDGET",
+         "mobileRightColumn": 16.0,
+         "animateLoading": true,
+         "overflow": "NONE",
+         "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+         "parentColumnSpace": 6.25,
+         "dynamicTriggerPathList": [],
+         "leftColumn": 0.0,
+         "dynamicBindingPathList": [
+          {
+           "key": "truncateButtonColor"
+          },
+          {
+           "key": "fontFamily"
+          },
+          {
+           "key": "borderRadius"
+          },
+          {
+           "key": "text"
+          }
+         ],
+         "shouldTruncate": false,
+         "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+         "text": "{{Checker.result.message}}",
+         "key": "a6k006yy",
+         "rightColumn": 64.0,
+         "textAlign": "LEFT",
+         "dynamicHeight": "AUTO_HEIGHT",
+         "widgetId": "a6w006xx",
+         "minWidth": 450.0,
+         "isVisible": true,
+         "fontStyle": "",
+         "textColor": "#231F20",
+         "version": 1.0,
+         "parentId": "0",
+         "renderMode": "CANVAS",
+         "isLoading": false,
+         "mobileTopRow": 46.0,
+         "responsiveBehavior": "fill",
+         "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+         "mobileLeftColumn": 0.0,
+         "maxDynamicHeight": 9000.0,
+         "fontSize": "1rem",
+         "minDynamicHeight": 4.0
+        },
+        {
+         "needsErrorInfo": false,
+         "mobileBottomRow": 56.0,
+         "widgetName": "IntegrityText",
+         "topRow": 52.0,
+         "bottomRow": 56.0,
+         "parentRowSpace": 10.0,
+         "type": "TEXT_WIDGET",
+         "mobileRightColumn": 16.0,
+         "animateLoading": true,
+         "overflow": "NONE",
+         "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+         "parentColumnSpace": 6.25,
+         "dynamicTriggerPathList": [],
+         "leftColumn": 0.0,
+         "dynamicBindingPathList": [
+          {
+           "key": "truncateButtonColor"
+          },
+          {
+           "key": "fontFamily"
+          },
+          {
+           "key": "borderRadius"
+          },
+          {
+           "key": "text"
+          }
+         ],
+         "shouldTruncate": false,
+         "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+         "text": "{{Checker.integrity()}}",
+         "key": "a6k007yy",
+         "rightColumn": 64.0,
+         "textAlign": "LEFT",
+         "dynamicHeight": "AUTO_HEIGHT",
+         "widgetId": "a6w007xx",
+         "minWidth": 450.0,
+         "isVisible": true,
+         "fontStyle": "",
+         "textColor": "#231F20",
+         "version": 1.0,
+         "parentId": "0",
+         "renderMode": "CANVAS",
+         "isLoading": false,
+         "mobileTopRow": 52.0,
+         "responsiveBehavior": "fill",
+         "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+         "mobileLeftColumn": 0.0,
+         "maxDynamicHeight": 9000.0,
+         "fontSize": "1rem",
+         "minDynamicHeight": 4.0
+        },
+        {
+         "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+         "borderColor": "#E0DEDE",
+         "isVisibleDownload": true,
+         "topRow": 60.0,
+         "isSortable": true,
+         "type": "TABLE_WIDGET_V2",
+         "inlineEditingSaveOption": "ROW_LEVEL",
+         "animateLoading": true,
+         "dynamicBindingPathList": [
+          {
+           "key": "accentColor"
+          },
+          {
+           "key": "borderRadius"
+          },
+          {
+           "key": "boxShadow"
+          },
+          {
+           "key": "tableData"
+          },
+          {
+           "key": "primaryColumns.id.computedValue"
+          },
+          {
+           "key": "primaryColumns.start.computedValue"
+          },
+          {
+           "key": "primaryColumns.end.computedValue"
+          }
+         ],
+         "leftColumn": 0.0,
+         "delimiter": ",",
+         "customIsLoadingValue": "",
+         "defaultSelectedRowIndex": 0.0,
+         "flexVerticalAlignment": "start",
+         "cachedTableData": {},
+         "dynamicHeight": "FIXED",
+         "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+         "isVisibleFilters": false,
+         "isVisible": true,
+         "enableClientSideSearch": true,
+         "version": 2.0,
+         "totalRecordsCount": 0.0,
+         "isLoading": false,
+         "childStylesheet": {
+          "button": {
+           "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+           "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+           "boxShadow": "none"
+          },
+          "menuButton": {
+           "menuColor": "{{appsmith.theme.colors.primaryColor}}",
+           "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+           "boxShadow": "none"
+          },
+          "iconButton": {
+           "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+           "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+           "boxShadow": "none"
+          },
+          "editActions": {
+           "saveButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+           "saveBorderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+           "discardButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+           "discardBorderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}"
+          }
+         },
+         "customIsLoading": false,
+         "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+         "columnUpdatedAt": 1795690855968.0,
+         "defaultSelectedRowIndices": [
+          0.0
+         ],
+         "needsErrorInfo": false,
+         "mobileBottomRow": 88.0,
+         "widgetName": "CatalogTable",
+         "defaultPageSize": 0.0,
+         "columnOrder": [
+          "id",
+          "start",
+          "end"
+         ],
+         "dynamicPropertyPathList": [
+          {
+           "key": "tableData"
+          }
+         ],
+         "bottomRow": 88.0,
+         "columnWidthMap": {},
+         "parentRowSpace": 10.0,
+         "mobileRightColumn": 14.0,
+         "parentColumnSpace": 6.25,
+         "dynamicTriggerPathList": [],
+         "borderWidth": "1",
+         "primaryColumns": {
+          "id": {
+           "allowCellWrapping": false,
+           "allowHeaderWrapping": false,
+           "allowSameOptionsInNewRow": true,
+           "index": 0.0,
+           "width": 150.0,
+           "originalId": "id",
+           "id": "id",
+           "alias": "id",
+           "horizontalAlignment": "LEFT",
+           "verticalAlignment": "CENTER",
+           "columnType": "text",
+           "textSize": "0.875rem",
+           "enableFilter": true,
+           "enableSort": true,
+           "isVisible": true,
+           "isDisabled": false,
+           "isCellEditable": false,
+           "isEditable": false,
+           "isCellVisible": true,
+           "isDerived": false,
+           "label": "id",
+           "isSaveVisible": true,
+           "isDiscardVisible": true,
+           "computedValue": "{{(() => { const tableData = BookingsTable.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"id\"])) : id })()}}",
+           "sticky": "",
+           "validation": {},
+           "currencyCode": "USD",
+           "decimals": 0.0,
+           "thousandSeparator": true,
+           "notation": "standard"
+          },
+          "start": {
+           "allowCellWrapping": false,
+           "allowHeaderWrapping": false,
+           "allowSameOptionsInNewRow": true,
+           "index": 1.0,
+           "width": 150.0,
+           "originalId": "start",
+           "id": "start",
+           "alias": "start",
+           "horizontalAlignment": "LEFT",
+           "verticalAlignment": "CENTER",
+           "columnType": "text",
+           "textSize": "0.875rem",
+           "enableFilter": true,
+           "enableSort": true,
+           "isVisible": true,
+           "isDisabled": false,
+           "isCellEditable": false,
+           "isEditable": false,
+           "isCellVisible": true,
+           "isDerived": false,
+           "label": "start",
+           "isSaveVisible": true,
+           "isDiscardVisible": true,
+           "computedValue": "{{(() => { const tableData = BookingsTable.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"start\"])) : start })()}}",
+           "sticky": "",
+           "validation": {},
+           "currencyCode": "USD",
+           "decimals": 0.0,
+           "thousandSeparator": true,
+           "notation": "standard"
+          },
+          "end": {
+           "allowCellWrapping": false,
+           "allowHeaderWrapping": false,
+           "allowSameOptionsInNewRow": true,
+           "index": 2.0,
+           "width": 150.0,
+           "originalId": "end",
+           "id": "end",
+           "alias": "end",
+           "horizontalAlignment": "LEFT",
+           "verticalAlignment": "CENTER",
+           "columnType": "text",
+           "textSize": "0.875rem",
+           "enableFilter": true,
+           "enableSort": true,
+           "isVisible": true,
+           "isDisabled": false,
+           "isCellEditable": false,
+           "isEditable": false,
+           "isCellVisible": true,
+           "isDerived": false,
+           "label": "end",
+           "isSaveVisible": true,
+           "isDiscardVisible": true,
+           "computedValue": "{{(() => { const tableData = BookingsTable.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"end\"])) : end })()}}",
+           "sticky": "",
+           "validation": {},
+           "currencyCode": "USD",
+           "decimals": 0.0,
+           "thousandSeparator": true,
+           "notation": "standard"
+          }
+         },
+         "key": "a6k008yy",
+         "canFreezeColumn": true,
+         "endOfData": false,
+         "rightColumn": 64.0,
+         "textSize": "0.875rem",
+         "widgetId": "a6w008xx",
+         "minWidth": 450.0,
+         "tableData": "{{Checker.catalog() ? Checker.catalog().items : []}}",
+         "label": "Data",
+         "searchKey": "",
+         "parentId": "0",
+         "renderMode": "CANVAS",
+         "mobileTopRow": 60.0,
+         "horizontalAlignment": "LEFT",
+         "isVisibleSearch": true,
+         "autoHeightRowCount": 10.0,
+         "responsiveBehavior": "fill",
+         "mobileLeftColumn": 0.0,
+         "isVisiblePagination": true,
+         "maxDynamicHeight": 9000.0,
+         "minDynamicHeight": 4.0,
+         "verticalAlignment": "CENTER"
+        }
+       ]
+      },
+      "layoutOnLoadActions": [],
+      "layoutOnLoadActionErrors": [],
+      "validOnPageLoadActions": true,
+      "id": "Page1",
+      "deleted": false,
+      "policies": [],
+      "userPermissions": []
+     }
+    ],
+    "userPermissions": [],
+    "policyMap": {}
+   },
+   "gitSyncId": "6b080fd6a11da8c85e01ac32_884ca198-cf39-40a5-a3c5-14b6d706b14d",
+   "deleted": false
+  }
+ ],
+ "actionList": [
+  {
+   "pluginType": "JS",
+   "pluginId": "js-plugin",
+   "unpublishedAction": {
+    "name": "catalog",
+    "fullyQualifiedName": "Checker.catalog",
+    "datasource": {
+     "name": "UNUSED_DATASOURCE",
+     "pluginId": "js-plugin",
+     "messages": [],
+     "isAutoGenerated": false,
+     "deleted": false,
+     "policyMap": {},
+     "policies": [],
+     "userPermissions": []
+    },
+    "pageId": "Page1",
+    "collectionId": "Page1_Checker",
+    "actionConfiguration": {
+     "timeoutInMillisecond": 10000.0,
+     "paginationType": "NONE",
+     "encodeParamsToggle": true,
+     "body": "function () {\n\t\tconst d = GetCatalog.data;\n\t\tconst ok = GetCatalog.responseMeta && GetCatalog.responseMeta.isExecutionSuccess;\n\t\tconst valid = d && Array.isArray(d.items) && d.items.every(i => i && typeof i.id === 'string' && i.id.length > 0 && typeof i.name === 'string' && i.name.length > 0 && Number.isInteger(i.stock) && i.stock >= 0 && typeof i.maintenance === 'boolean');\n\t\treturn ok && valid ? d : null;\n}",
+     "selfReferencingDataPaths": [],
+     "jsArguments": []
+    },
+    "runBehaviour": "MANUAL",
+    "dynamicBindingPathList": [
+     {
+      "key": "body"
+     }
+    ],
+    "isValid": true,
+    "invalids": [],
+    "messages": [],
+    "jsonPathKeys": [
+     "function () {\n\t\tconst d = GetCatalog.data;\n\t\tconst ok = GetCatalog.responseMeta && GetCatalog.responseMeta.isExecutionSuccess;\n\t\tconst valid = d && Array.isArray(d.items) && d.items.every(i => i && typeof i.id === 'string' && i.id.length > 0 && typeof i.name === 'string' && i.name.length > 0 && Number.isInteger(i.stock) && i.stock >= 0 && typeof i.maintenance === 'boolean');\n\t\treturn ok && valid ? d : null;\n}"
+    ],
+    "userSetOnLoad": false,
+    "confirmBeforeExecute": false,
+    "policyMap": {},
+    "userPermissions": [],
+    "createdAt": "2026-11-26T10:56:25Z"
+   },
+   "publishedAction": {
+    "name": "catalog",
+    "fullyQualifiedName": "Checker.catalog",
+    "datasource": {
+     "name": "UNUSED_DATASOURCE",
+     "pluginId": "js-plugin",
+     "messages": [],
+     "isAutoGenerated": false,
+     "deleted": false,
+     "policyMap": {},
+     "policies": [],
+     "userPermissions": []
+    },
+    "pageId": "Page1",
+    "collectionId": "Page1_Checker",
+    "actionConfiguration": {
+     "timeoutInMillisecond": 10000.0,
+     "paginationType": "NONE",
+     "encodeParamsToggle": true,
+     "body": "function () {\n\t\tconst d = GetCatalog.data;\n\t\tconst ok = GetCatalog.responseMeta && GetCatalog.responseMeta.isExecutionSuccess;\n\t\tconst valid = d && Array.isArray(d.items) && d.items.every(i => i && typeof i.id === 'string' && i.id.length > 0 && typeof i.name === 'string' && i.name.length > 0 && Number.isInteger(i.stock) && i.stock >= 0 && typeof i.maintenance === 'boolean');\n\t\treturn ok && valid ? d : null;\n}",
+     "selfReferencingDataPaths": [],
+     "jsArguments": []
+    },
+    "runBehaviour": "MANUAL",
+    "dynamicBindingPathList": [
+     {
+      "key": "body"
+     }
+    ],
+    "isValid": true,
+    "invalids": [],
+    "messages": [],
+    "jsonPathKeys": [
+     "function () {\n\t\tconst d = GetCatalog.data;\n\t\tconst ok = GetCatalog.responseMeta && GetCatalog.responseMeta.isExecutionSuccess;\n\t\tconst valid = d && Array.isArray(d.items) && d.items.every(i => i && typeof i.id === 'string' && i.id.length > 0 && typeof i.name === 'string' && i.name.length > 0 && Number.isInteger(i.stock) && i.stock >= 0 && typeof i.maintenance === 'boolean');\n\t\treturn ok && valid ? d : null;\n}"
+    ],
+    "userSetOnLoad": false,
+    "confirmBeforeExecute": false,
+    "policyMap": {},
+    "userPermissions": [],
+    "createdAt": "2026-11-26T10:56:25Z"
+   },
+   "gitSyncId": "a6_catalog",
+   "id": "Page1_Checker.catalog",
+   "deleted": false
+  },
+  {
+   "pluginType": "JS",
+   "pluginId": "js-plugin",
+   "unpublishedAction": {
+    "name": "whole",
+    "fullyQualifiedName": "Checker.whole",
+    "datasource": {
+     "name": "UNUSED_DATASOURCE",
+     "pluginId": "js-plugin",
+     "messages": [],
+     "isAutoGenerated": false,
+     "deleted": false,
+     "policyMap": {},
+     "policies": [],
+     "userPermissions": []
+    },
+    "pageId": "Page1",
+    "collectionId": "Page1_Checker",
+    "actionConfiguration": {
+     "timeoutInMillisecond": 10000.0,
+     "paginationType": "NONE",
+     "encodeParamsToggle": true,
+     "body": "function (text) {\n\t\tconst t = String(text === undefined || text === null ? '' : text).trim();\n\t\treturn /^[0-9]{1,6}$/.test(t) ? Number(t) : null;\n}",
+     "selfReferencingDataPaths": [],
+     "jsArguments": [
+      {
+       "name": "text"
+      }
+     ]
+    },
+    "runBehaviour": "MANUAL",
+    "dynamicBindingPathList": [
+     {
+      "key": "body"
+     }
+    ],
+    "isValid": true,
+    "invalids": [],
+    "messages": [],
+    "jsonPathKeys": [
+     "function (text) {\n\t\tconst t = String(text === undefined || text === null ? '' : text).trim();\n\t\treturn /^[0-9]{1,6}$/.test(t) ? Number(t) : null;\n}"
+    ],
+    "userSetOnLoad": false,
+    "confirmBeforeExecute": false,
+    "policyMap": {},
+    "userPermissions": [],
+    "createdAt": "2026-11-26T10:56:25Z"
+   },
+   "publishedAction": {
+    "name": "whole",
+    "fullyQualifiedName": "Checker.whole",
+    "datasource": {
+     "name": "UNUSED_DATASOURCE",
+     "pluginId": "js-plugin",
+     "messages": [],
+     "isAutoGenerated": false,
+     "deleted": false,
+     "policyMap": {},
+     "policies": [],
+     "userPermissions": []
+    },
+    "pageId": "Page1",
+    "collectionId": "Page1_Checker",
+    "actionConfiguration": {
+     "timeoutInMillisecond": 10000.0,
+     "paginationType": "NONE",
+     "encodeParamsToggle": true,
+     "body": "function (text) {\n\t\tconst t = String(text === undefined || text === null ? '' : text).trim();\n\t\treturn /^[0-9]{1,6}$/.test(t) ? Number(t) : null;\n}",
+     "selfReferencingDataPaths": [],
+     "jsArguments": [
+      {
+       "name": "text"
+      }
+     ]
+    },
+    "runBehaviour": "MANUAL",
+    "dynamicBindingPathList": [
+     {
+      "key": "body"
+     }
+    ],
+    "isValid": true,
+    "invalids": [],
+    "messages": [],
+    "jsonPathKeys": [
+     "function (text) {\n\t\tconst t = String(text === undefined || text === null ? '' : text).trim();\n\t\treturn /^[0-9]{1,6}$/.test(t) ? Number(t) : null;\n}"
+    ],
+    "userSetOnLoad": false,
+    "confirmBeforeExecute": false,
+    "policyMap": {},
+    "userPermissions": [],
+    "createdAt": "2026-11-26T10:56:25Z"
+   },
+   "gitSyncId": "a6_whole",
+   "id": "Page1_Checker.whole",
+   "deleted": false
+  },
+  {
+   "pluginType": "JS",
+   "pluginId": "js-plugin",
+   "unpublishedAction": {
+    "name": "check",
+    "fullyQualifiedName": "Checker.check",
+    "datasource": {
+     "name": "UNUSED_DATASOURCE",
+     "pluginId": "js-plugin",
+     "messages": [],
+     "isAutoGenerated": false,
+     "deleted": false,
+     "policyMap": {},
+     "policies": [],
+     "userPermissions": []
+    },
+    "pageId": "Page1",
+    "collectionId": "Page1_Checker",
+    "actionConfiguration": {
+     "timeoutInMillisecond": 10000.0,
+     "paginationType": "NONE",
+     "encodeParamsToggle": true,
+     "body": "function (itemId, qtyText, daysText) {\n\t\tconst cat = Checker.catalog();\n\t\tif (!cat) return { decision: 'No decision', reason: 'CATALOG_UNAVAILABLE', message: 'The catalog could not be loaded. Try again later.' };\n\t\tconst item = cat.items.find(i => i.id === itemId);\n\t\tif (!item) return { decision: 'Invalid input', reason: 'INVALID_ITEM', message: 'Choose an item from the catalog.' };\n\t\tconst q = Checker.whole(qtyText);\n\t\tif (q === null) return { decision: 'Invalid input', reason: 'INVALID_QUANTITY', message: 'Quantity must be a whole number, for example 2.' };\n\t\tconst d = Checker.whole(daysText);\n\t\tif (d === null) return { decision: 'Invalid input', reason: 'INVALID_DAYS', message: 'Loan days must be a whole number, for example 7.' };\n\t\tif (q < 1 || q > Checker.MAX_QUANTITY) return { decision: 'Invalid input', reason: 'QUANTITY_OUT_OF_RANGE', message: 'Quantity must be from 1 to 5.' };\n\t\tif (d < 1 || d > Checker.MAX_DAYS) return { decision: 'Invalid input', reason: 'DAYS_OUT_OF_RANGE', message: 'Loan days must be from 1 to 14.' };\n\t\tif (item.maintenance) return { decision: 'Rejected', reason: 'ITEM_UNAVAILABLE', message: item.name + ' is under maintenance and cannot be borrowed now.' };\n\t\tif (q > item.stock) return { decision: 'Rejected', reason: 'INSUFFICIENT_STOCK', message: 'Only ' + item.stock + ' x ' + item.name + ' in stock; you asked for ' + q + '.' };\n\t\treturn { decision: 'Approved', reason: 'APPROVED', message: q + ' x ' + item.name + ' for ' + d + (d === 1 ? ' day' : ' days') + ' can be borrowed (' + item.stock + ' in stock).' };\n}",
+     "selfReferencingDataPaths": [],
+     "jsArguments": [
+      {
+       "name": "itemId"
+      },
+      {
+       "name": "qtyText"
+      },
+      {
+       "name": "daysText"
+      }
+     ]
+    },
+    "runBehaviour": "MANUAL",
+    "dynamicBindingPathList": [
+     {
+      "key": "body"
+     }
+    ],
+    "isValid": true,
+    "invalids": [],
+    "messages": [],
+    "jsonPathKeys": [
+     "function (itemId, qtyText, daysText) {\n\t\tconst cat = Checker.catalog();\n\t\tif (!cat) return { decision: 'No decision', reason: 'CATALOG_UNAVAILABLE', message: 'The catalog could not be loaded. Try again later.' };\n\t\tconst item = cat.items.find(i => i.id === itemId);\n\t\tif (!item) return { decision: 'Invalid input', reason: 'INVALID_ITEM', message: 'Choose an item from the catalog.' };\n\t\tconst q = Checker.whole(qtyText);\n\t\tif (q === null) return { decision: 'Invalid input', reason: 'INVALID_QUANTITY', message: 'Quantity must be a whole number, for example 2.' };\n\t\tconst d = Checker.whole(daysText);\n\t\tif (d === null) return { decision: 'Invalid input', reason: 'INVALID_DAYS', message: 'Loan days must be a whole number, for example 7.' };\n\t\tif (q < 1 || q > Checker.MAX_QUANTITY) return { decision: 'Invalid input', reason: 'QUANTITY_OUT_OF_RANGE', message: 'Quantity must be from 1 to 5.' };\n\t\tif (d < 1 || d > Checker.MAX_DAYS) return { decision: 'Invalid input', reason: 'DAYS_OUT_OF_RANGE', message: 'Loan days must be from 1 to 14.' };\n\t\tif (item.maintenance) return { decision: 'Rejected', reason: 'ITEM_UNAVAILABLE', message: item.name + ' is under maintenance and cannot be borrowed now.' };\n\t\tif (q > item.stock) return { decision: 'Rejected', reason: 'INSUFFICIENT_STOCK', message: 'Only ' + item.stock + ' x ' + item.name + ' in stock; you asked for ' + q + '.' };\n\t\treturn { decision: 'Approved', reason: 'APPROVED', message: q + ' x ' + item.name + ' for ' + d + (d === 1 ? ' day' : ' days') + ' can be borrowed (' + item.stock + ' in stock).' };\n}"
+    ],
+    "userSetOnLoad": false,
+    "confirmBeforeExecute": false,
+    "policyMap": {},
+    "userPermissions": [],
+    "createdAt": "2026-11-26T10:56:25Z"
+   },
+   "publishedAction": {
+    "name": "check",
+    "fullyQualifiedName": "Checker.check",
+    "datasource": {
+     "name": "UNUSED_DATASOURCE",
+     "pluginId": "js-plugin",
+     "messages": [],
+     "isAutoGenerated": false,
+     "deleted": false,
+     "policyMap": {},
+     "policies": [],
+     "userPermissions": []
+    },
+    "pageId": "Page1",
+    "collectionId": "Page1_Checker",
+    "actionConfiguration": {
+     "timeoutInMillisecond": 10000.0,
+     "paginationType": "NONE",
+     "encodeParamsToggle": true,
+     "body": "function (itemId, qtyText, daysText) {\n\t\tconst cat = Checker.catalog();\n\t\tif (!cat) return { decision: 'No decision', reason: 'CATALOG_UNAVAILABLE', message: 'The catalog could not be loaded. Try again later.' };\n\t\tconst item = cat.items.find(i => i.id === itemId);\n\t\tif (!item) return { decision: 'Invalid input', reason: 'INVALID_ITEM', message: 'Choose an item from the catalog.' };\n\t\tconst q = Checker.whole(qtyText);\n\t\tif (q === null) return { decision: 'Invalid input', reason: 'INVALID_QUANTITY', message: 'Quantity must be a whole number, for example 2.' };\n\t\tconst d = Checker.whole(daysText);\n\t\tif (d === null) return { decision: 'Invalid input', reason: 'INVALID_DAYS', message: 'Loan days must be a whole number, for example 7.' };\n\t\tif (q < 1 || q > Checker.MAX_QUANTITY) return { decision: 'Invalid input', reason: 'QUANTITY_OUT_OF_RANGE', message: 'Quantity must be from 1 to 5.' };\n\t\tif (d < 1 || d > Checker.MAX_DAYS) return { decision: 'Invalid input', reason: 'DAYS_OUT_OF_RANGE', message: 'Loan days must be from 1 to 14.' };\n\t\tif (item.maintenance) return { decision: 'Rejected', reason: 'ITEM_UNAVAILABLE', message: item.name + ' is under maintenance and cannot be borrowed now.' };\n\t\tif (q > item.stock) return { decision: 'Rejected', reason: 'INSUFFICIENT_STOCK', message: 'Only ' + item.stock + ' x ' + item.name + ' in stock; you asked for ' + q + '.' };\n\t\treturn { decision: 'Approved', reason: 'APPROVED', message: q + ' x ' + item.name + ' for ' + d + (d === 1 ? ' day' : ' days') + ' can be borrowed (' + item.stock + ' in stock).' };\n}",
+     "selfReferencingDataPaths": [],
+     "jsArguments": [
+      {
+       "name": "itemId"
+      },
+      {
+       "name": "qtyText"
+      },
+      {
+       "name": "daysText"
+      }
+     ]
+    },
+    "runBehaviour": "MANUAL",
+    "dynamicBindingPathList": [
+     {
+      "key": "body"
+     }
+    ],
+    "isValid": true,
+    "invalids": [],
+    "messages": [],
+    "jsonPathKeys": [
+     "function (itemId, qtyText, daysText) {\n\t\tconst cat = Checker.catalog();\n\t\tif (!cat) return { decision: 'No decision', reason: 'CATALOG_UNAVAILABLE', message: 'The catalog could not be loaded. Try again later.' };\n\t\tconst item = cat.items.find(i => i.id === itemId);\n\t\tif (!item) return { decision: 'Invalid input', reason: 'INVALID_ITEM', message: 'Choose an item from the catalog.' };\n\t\tconst q = Checker.whole(qtyText);\n\t\tif (q === null) return { decision: 'Invalid input', reason: 'INVALID_QUANTITY', message: 'Quantity must be a whole number, for example 2.' };\n\t\tconst d = Checker.whole(daysText);\n\t\tif (d === null) return { decision: 'Invalid input', reason: 'INVALID_DAYS', message: 'Loan days must be a whole number, for example 7.' };\n\t\tif (q < 1 || q > Checker.MAX_QUANTITY) return { decision: 'Invalid input', reason: 'QUANTITY_OUT_OF_RANGE', message: 'Quantity must be from 1 to 5.' };\n\t\tif (d < 1 || d > Checker.MAX_DAYS) return { decision: 'Invalid input', reason: 'DAYS_OUT_OF_RANGE', message: 'Loan days must be from 1 to 14.' };\n\t\tif (item.maintenance) return { decision: 'Rejected', reason: 'ITEM_UNAVAILABLE', message: item.name + ' is under maintenance and cannot be borrowed now.' };\n\t\tif (q > item.stock) return { decision: 'Rejected', reason: 'INSUFFICIENT_STOCK', message: 'Only ' + item.stock + ' x ' + item.name + ' in stock; you asked for ' + q + '.' };\n\t\treturn { decision: 'Approved', reason: 'APPROVED', message: q + ' x ' + item.name + ' for ' + d + (d === 1 ? ' day' : ' days') + ' can be borrowed (' + item.stock + ' in stock).' };\n}"
+    ],
+    "userSetOnLoad": false,
+    "confirmBeforeExecute": false,
+    "policyMap": {},
+    "userPermissions": [],
+    "createdAt": "2026-11-26T10:56:25Z"
+   },
+   "gitSyncId": "a6_check",
+   "id": "Page1_Checker.check",
+   "deleted": false
+  },
+  {
+   "pluginType": "JS",
+   "pluginId": "js-plugin",
+   "unpublishedAction": {
+    "name": "run",
+    "fullyQualifiedName": "Checker.run",
+    "datasource": {
+     "name": "UNUSED_DATASOURCE",
+     "pluginId": "js-plugin",
+     "messages": [],
+     "isAutoGenerated": false,
+     "deleted": false,
+     "policyMap": {},
+     "policies": [],
+     "userPermissions": []
+    },
+    "pageId": "Page1",
+    "collectionId": "Page1_Checker",
+    "actionConfiguration": {
+     "timeoutInMillisecond": 10000.0,
+     "paginationType": "NONE",
+     "encodeParamsToggle": true,
+     "body": "function () {\n\t\tconst cat = Checker.catalog();\n\t\tChecker.result = Checker.check(ItemSelect.selectedOptionValue, QuantityInput.text, DaysInput.text);\n\t\tif (cat) {\n\t\t\tif (!Checker.snapshot) Checker.snapshot = JSON.stringify(cat);\n\t\t\tChecker.checks = Checker.checks + 1;\n\t\t}\n\t\treturn Checker.result;\n}",
+     "selfReferencingDataPaths": [],
+     "jsArguments": []
+    },
+    "runBehaviour": "MANUAL",
+    "dynamicBindingPathList": [
+     {
+      "key": "body"
+     }
+    ],
+    "isValid": true,
+    "invalids": [],
+    "messages": [],
+    "jsonPathKeys": [
+     "function () {\n\t\tconst cat = Checker.catalog();\n\t\tChecker.result = Checker.check(ItemSelect.selectedOptionValue, QuantityInput.text, DaysInput.text);\n\t\tif (cat) {\n\t\t\tif (!Checker.snapshot) Checker.snapshot = JSON.stringify(cat);\n\t\t\tChecker.checks = Checker.checks + 1;\n\t\t}\n\t\treturn Checker.result;\n}"
+    ],
+    "userSetOnLoad": false,
+    "confirmBeforeExecute": false,
+    "policyMap": {},
+    "userPermissions": [],
+    "createdAt": "2026-11-26T10:56:25Z"
+   },
+   "publishedAction": {
+    "name": "run",
+    "fullyQualifiedName": "Checker.run",
+    "datasource": {
+     "name": "UNUSED_DATASOURCE",
+     "pluginId": "js-plugin",
+     "messages": [],
+     "isAutoGenerated": false,
+     "deleted": false,
+     "policyMap": {},
+     "policies": [],
+     "userPermissions": []
+    },
+    "pageId": "Page1",
+    "collectionId": "Page1_Checker",
+    "actionConfiguration": {
+     "timeoutInMillisecond": 10000.0,
+     "paginationType": "NONE",
+     "encodeParamsToggle": true,
+     "body": "function () {\n\t\tconst cat = Checker.catalog();\n\t\tChecker.result = Checker.check(ItemSelect.selectedOptionValue, QuantityInput.text, DaysInput.text);\n\t\tif (cat) {\n\t\t\tif (!Checker.snapshot) Checker.snapshot = JSON.stringify(cat);\n\t\t\tChecker.checks = Checker.checks + 1;\n\t\t}\n\t\treturn Checker.result;\n}",
+     "selfReferencingDataPaths": [],
+     "jsArguments": []
+    },
+    "runBehaviour": "MANUAL",
+    "dynamicBindingPathList": [
+     {
+      "key": "body"
+     }
+    ],
+    "isValid": true,
+    "invalids": [],
+    "messages": [],
+    "jsonPathKeys": [
+     "function () {\n\t\tconst cat = Checker.catalog();\n\t\tChecker.result = Checker.check(ItemSelect.selectedOptionValue, QuantityInput.text, DaysInput.text);\n\t\tif (cat) {\n\t\t\tif (!Checker.snapshot) Checker.snapshot = JSON.stringify(cat);\n\t\t\tChecker.checks = Checker.checks + 1;\n\t\t}\n\t\treturn Checker.result;\n}"
+    ],
+    "userSetOnLoad": false,
+    "confirmBeforeExecute": false,
+    "policyMap": {},
+    "userPermissions": [],
+    "createdAt": "2026-11-26T10:56:25Z"
+   },
+   "gitSyncId": "a6_run",
+   "id": "Page1_Checker.run",
+   "deleted": false
+  },
+  {
+   "pluginType": "JS",
+   "pluginId": "js-plugin",
+   "unpublishedAction": {
+    "name": "integrity",
+    "fullyQualifiedName": "Checker.integrity",
+    "datasource": {
+     "name": "UNUSED_DATASOURCE",
+     "pluginId": "js-plugin",
+     "messages": [],
+     "isAutoGenerated": false,
+     "deleted": false,
+     "policyMap": {},
+     "policies": [],
+     "userPermissions": []
+    },
+    "pageId": "Page1",
+    "collectionId": "Page1_Checker",
+    "actionConfiguration": {
+     "timeoutInMillisecond": 10000.0,
+     "paginationType": "NONE",
+     "encodeParamsToggle": true,
+     "body": "function () {\n\t\tconst cat = Checker.catalog();\n\t\tif (!cat) return 'Stock unchanged: - (no catalog)';\n\t\treturn 'Stock unchanged: ' + (!Checker.snapshot || JSON.stringify(cat) === Checker.snapshot ? 'yes' : 'NO') + ' (' + Checker.checks + ' checks)';\n}",
+     "selfReferencingDataPaths": [],
+     "jsArguments": []
+    },
+    "runBehaviour": "MANUAL",
+    "dynamicBindingPathList": [
+     {
+      "key": "body"
+     }
+    ],
+    "isValid": true,
+    "invalids": [],
+    "messages": [],
+    "jsonPathKeys": [
+     "function () {\n\t\tconst cat = Checker.catalog();\n\t\tif (!cat) return 'Stock unchanged: - (no catalog)';\n\t\treturn 'Stock unchanged: ' + (!Checker.snapshot || JSON.stringify(cat) === Checker.snapshot ? 'yes' : 'NO') + ' (' + Checker.checks + ' checks)';\n}"
+    ],
+    "userSetOnLoad": false,
+    "confirmBeforeExecute": false,
+    "policyMap": {},
+    "userPermissions": [],
+    "createdAt": "2026-11-26T10:56:25Z"
+   },
+   "publishedAction": {
+    "name": "integrity",
+    "fullyQualifiedName": "Checker.integrity",
+    "datasource": {
+     "name": "UNUSED_DATASOURCE",
+     "pluginId": "js-plugin",
+     "messages": [],
+     "isAutoGenerated": false,
+     "deleted": false,
+     "policyMap": {},
+     "policies": [],
+     "userPermissions": []
+    },
+    "pageId": "Page1",
+    "collectionId": "Page1_Checker",
+    "actionConfiguration": {
+     "timeoutInMillisecond": 10000.0,
+     "paginationType": "NONE",
+     "encodeParamsToggle": true,
+     "body": "function () {\n\t\tconst cat = Checker.catalog();\n\t\tif (!cat) return 'Stock unchanged: - (no catalog)';\n\t\treturn 'Stock unchanged: ' + (!Checker.snapshot || JSON.stringify(cat) === Checker.snapshot ? 'yes' : 'NO') + ' (' + Checker.checks + ' checks)';\n}",
+     "selfReferencingDataPaths": [],
+     "jsArguments": []
+    },
+    "runBehaviour": "MANUAL",
+    "dynamicBindingPathList": [
+     {
+      "key": "body"
+     }
+    ],
+    "isValid": true,
+    "invalids": [],
+    "messages": [],
+    "jsonPathKeys": [
+     "function () {\n\t\tconst cat = Checker.catalog();\n\t\tif (!cat) return 'Stock unchanged: - (no catalog)';\n\t\treturn 'Stock unchanged: ' + (!Checker.snapshot || JSON.stringify(cat) === Checker.snapshot ? 'yes' : 'NO') + ' (' + Checker.checks + ' checks)';\n}"
+    ],
+    "userSetOnLoad": false,
+    "confirmBeforeExecute": false,
+    "policyMap": {},
+    "userPermissions": [],
+    "createdAt": "2026-11-26T10:56:25Z"
+   },
+   "gitSyncId": "a6_integrity",
+   "id": "Page1_Checker.integrity",
+   "deleted": false
+  }
+ ],
+ "actionCollectionList": [
+  {
+   "unpublishedCollection": {
+    "name": "Checker",
+    "pageId": "Page1",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tMAX_QUANTITY: 5,\n\tMAX_DAYS: 14,\n\tchecks: 0,\n\tsnapshot: '',\n\tresult: { decision: 'No check yet', reason: '-', message: 'Choose an item, enter a quantity and loan days, then press Check request.' },\n\tcatalog () {\n\t\tconst d = GetCatalog.data;\n\t\tconst ok = GetCatalog.responseMeta && GetCatalog.responseMeta.isExecutionSuccess;\n\t\tconst valid = d && Array.isArray(d.items) && d.items.every(i => i && typeof i.id === 'string' && i.id.length > 0 && typeof i.name === 'string' && i.name.length > 0 && Number.isInteger(i.stock) && i.stock >= 0 && typeof i.maintenance === 'boolean');\n\t\treturn ok && valid ? d : null;\n\t},\n\twhole (text) {\n\t\tconst t = String(text === undefined || text === null ? '' : text).trim();\n\t\treturn /^[0-9]{1,6}$/.test(t) ? Number(t) : null;\n\t},\n\tcheck (itemId, qtyText, daysText) {\n\t\tconst cat = this.catalog();\n\t\tif (!cat) return { decision: 'No decision', reason: 'CATALOG_UNAVAILABLE', message: 'The catalog could not be loaded. Try again later.' };\n\t\tconst item = cat.items.find(i => i.id === itemId);\n\t\tif (!item) return { decision: 'Invalid input', reason: 'INVALID_ITEM', message: 'Choose an item from the catalog.' };\n\t\tconst q = this.whole(qtyText);\n\t\tif (q === null) return { decision: 'Invalid input', reason: 'INVALID_QUANTITY', message: 'Quantity must be a whole number, for example 2.' };\n\t\tconst d = this.whole(daysText);\n\t\tif (d === null) return { decision: 'Invalid input', reason: 'INVALID_DAYS', message: 'Loan days must be a whole number, for example 7.' };\n\t\tif (q < 1 || q > this.MAX_QUANTITY) return { decision: 'Invalid input', reason: 'QUANTITY_OUT_OF_RANGE', message: 'Quantity must be from 1 to 5.' };\n\t\tif (d < 1 || d > this.MAX_DAYS) return { decision: 'Invalid input', reason: 'DAYS_OUT_OF_RANGE', message: 'Loan days must be from 1 to 14.' };\n\t\tif (item.maintenance) return { decision: 'Rejected', reason: 'ITEM_UNAVAILABLE', message: item.name + ' is under maintenance and cannot be borrowed now.' };\n\t\tif (q > item.stock) return { decision: 'Rejected', reason: 'INSUFFICIENT_STOCK', message: 'Only ' + item.stock + ' x ' + item.name + ' in stock; you asked for ' + q + '.' };\n\t\treturn { decision: 'Approved', reason: 'APPROVED', message: q + ' x ' + item.name + ' for ' + d + (d === 1 ? ' day' : ' days') + ' can be borrowed (' + item.stock + ' in stock).' };\n\t},\n\trun () {\n\t\tconst cat = this.catalog();\n\t\tthis.result = this.check(ItemSelect.selectedOptionValue, QuantityInput.text, DaysInput.text);\n\t\tif (cat) {\n\t\t\tif (!this.snapshot) this.snapshot = JSON.stringify(cat);\n\t\t\tthis.checks = this.checks + 1;\n\t\t}\n\t\treturn this.result;\n\t},\n\tintegrity () {\n\t\tconst cat = this.catalog();\n\t\tif (!cat) return 'Stock unchanged: - (no catalog)';\n\t\treturn 'Stock unchanged: ' + (!this.snapshot || JSON.stringify(cat) === this.snapshot ? 'yes' : 'NO') + ' (' + this.checks + ' checks)';\n\t}\n}\n",
+    "variables": [
+     {
+      "name": "MAX_QUANTITY",
+      "value": "5"
+     },
+     {
+      "name": "MAX_DAYS",
+      "value": "14"
+     },
+     {
+      "name": "checks",
+      "value": "0"
+     },
+     {
+      "name": "snapshot",
+      "value": "''"
+     },
+     {
+      "name": "result",
+      "value": "{ decision: 'No check yet', reason: '-', message: 'Choose an item, enter a quantity and loan days, then press Check request.' }"
+     }
+    ],
+    "userPermissions": []
+   },
+   "publishedCollection": {
+    "name": "Checker",
+    "pageId": "Page1",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tMAX_QUANTITY: 5,\n\tMAX_DAYS: 14,\n\tchecks: 0,\n\tsnapshot: '',\n\tresult: { decision: 'No check yet', reason: '-', message: 'Choose an item, enter a quantity and loan days, then press Check request.' },\n\tcatalog () {\n\t\tconst d = GetCatalog.data;\n\t\tconst ok = GetCatalog.responseMeta && GetCatalog.responseMeta.isExecutionSuccess;\n\t\tconst valid = d && Array.isArray(d.items) && d.items.every(i => i && typeof i.id === 'string' && i.id.length > 0 && typeof i.name === 'string' && i.name.length > 0 && Number.isInteger(i.stock) && i.stock >= 0 && typeof i.maintenance === 'boolean');\n\t\treturn ok && valid ? d : null;\n\t},\n\twhole (text) {\n\t\tconst t = String(text === undefined || text === null ? '' : text).trim();\n\t\treturn /^[0-9]{1,6}$/.test(t) ? Number(t) : null;\n\t},\n\tcheck (itemId, qtyText, daysText) {\n\t\tconst cat = this.catalog();\n\t\tif (!cat) return { decision: 'No decision', reason: 'CATALOG_UNAVAILABLE', message: 'The catalog could not be loaded. Try again later.' };\n\t\tconst item = cat.items.find(i => i.id === itemId);\n\t\tif (!item) return { decision: 'Invalid input', reason: 'INVALID_ITEM', message: 'Choose an item from the catalog.' };\n\t\tconst q = this.whole(qtyText);\n\t\tif (q === null) return { decision: 'Invalid input', reason: 'INVALID_QUANTITY', message: 'Quantity must be a whole number, for example 2.' };\n\t\tconst d = this.whole(daysText);\n\t\tif (d === null) return { decision: 'Invalid input', reason: 'INVALID_DAYS', message: 'Loan days must be a whole number, for example 7.' };\n\t\tif (q < 1 || q > this.MAX_QUANTITY) return { decision: 'Invalid input', reason: 'QUANTITY_OUT_OF_RANGE', message: 'Quantity must be from 1 to 5.' };\n\t\tif (d < 1 || d > this.MAX_DAYS) return { decision: 'Invalid input', reason: 'DAYS_OUT_OF_RANGE', message: 'Loan days must be from 1 to 14.' };\n\t\tif (item.maintenance) return { decision: 'Rejected', reason: 'ITEM_UNAVAILABLE', message: item.name + ' is under maintenance and cannot be borrowed now.' };\n\t\tif (q > item.stock) return { decision: 'Rejected', reason: 'INSUFFICIENT_STOCK', message: 'Only ' + item.stock + ' x ' + item.name + ' in stock; you asked for ' + q + '.' };\n\t\treturn { decision: 'Approved', reason: 'APPROVED', message: q + ' x ' + item.name + ' for ' + d + (d === 1 ? ' day' : ' days') + ' can be borrowed (' + item.stock + ' in stock).' };\n\t},\n\trun () {\n\t\tconst cat = this.catalog();\n\t\tthis.result = this.check(ItemSelect.selectedOptionValue, QuantityInput.text, DaysInput.text);\n\t\tif (cat) {\n\t\t\tif (!this.snapshot) this.snapshot = JSON.stringify(cat);\n\t\t\tthis.checks = this.checks + 1;\n\t\t}\n\t\treturn this.result;\n\t},\n\tintegrity () {\n\t\tconst cat = this.catalog();\n\t\tif (!cat) return 'Stock unchanged: - (no catalog)';\n\t\treturn 'Stock unchanged: ' + (!this.snapshot || JSON.stringify(cat) === this.snapshot ? 'yes' : 'NO') + ' (' + this.checks + ' checks)';\n\t}\n}\n",
+    "variables": [
+     {
+      "name": "MAX_QUANTITY",
+      "value": "5"
+     },
+     {
+      "name": "MAX_DAYS",
+      "value": "14"
+     },
+     {
+      "name": "checks",
+      "value": "0"
+     },
+     {
+      "name": "snapshot",
+      "value": "''"
+     },
+     {
+      "name": "result",
+      "value": "{ decision: 'No check yet', reason: '-', message: 'Choose an item, enter a quantity and loan days, then press Check request.' }"
+     }
+    ],
+    "userPermissions": []
+   },
+   "gitSyncId": "6b080fd6a11da8c85e01ac32_e8f92dc9-c516-41a7-a7cc-48f022b9ab53",
+   "id": "Page1_Checker",
+   "deleted": false
+  }
+ ],
+ "editModeTheme": {
+  "name": "Default-New",
+  "displayName": "Modern",
+  "isSystemTheme": true,
+  "deleted": false
+ },
+ "publishedTheme": {
+  "name": "Default-New",
+  "displayName": "Modern",
+  "isSystemTheme": true,
+  "deleted": false
+ }
+}
